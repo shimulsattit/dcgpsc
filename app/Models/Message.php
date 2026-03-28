@@ -10,7 +10,7 @@ class Message extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['type', 'name', 'slug', 'designation', 'image_url', 'message', 'link', 'style', 'order', 'is_active'];
+    protected $fillable = ['type', 'name', 'title', 'slug', 'designation', 'image_url', 'message', 'link', 'style', 'order', 'is_active'];
 
     protected $casts = [
         'is_active' => 'boolean',

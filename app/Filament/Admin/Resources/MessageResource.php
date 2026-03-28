@@ -32,9 +32,12 @@ class MessageResource extends Resource
                         Forms\Components\Select::make('type')
                             ->label('Type (ধরন)')
                             ->options([
+                                'Founder' => 'Founder',
                                 'Chief Patron' => 'Chief Patron',
                                 'Chairman' => 'Chairman',
                                 'Principal' => 'Principal',
+                                'Vice Principal' => 'Vice Principal',
+                                'Headmaster' => 'Headmaster',
                             ])
                             ->required(),
                         Forms\Components\TextInput::make('name')
@@ -43,6 +46,11 @@ class MessageResource extends Resource
                             ->maxLength(255)
                             ->live(onBlur: true)
                             ->afterStateUpdated(fn(string $operation, $state, Forms\Set $set) => $operation === 'create' ? $set('slug', \Illuminate\Support\Str::slug($state)) : null),
+                        Forms\Components\TextInput::make('title')
+                            ->label('Message Title (মেসেজ টাইটেল)')
+                            ->maxLength(255)
+                            ->placeholder('e.g., Message of the Chairman')
+                            ->helperText('নেম কার্ডের উপরে প্রদর্শিত টাইটেল'),
                         Forms\Components\TextInput::make('slug')
                             ->label('Slug (URL)')
                             ->required()
@@ -94,6 +102,7 @@ class MessageResource extends Resource
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name')
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable()
@@ -103,8 +112,8 @@ class MessageResource extends Resource
                 Tables\Columns\TextColumn::make('order')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\IconColumn::make('is_active')
-                    ->boolean(),
+                Tables\Columns\ToggleColumn::make('is_active')
+                    ->label('Is active'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

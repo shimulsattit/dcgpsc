@@ -1,0 +1,68 @@
+[30-Dec-2025 13:02:12 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:12 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:39 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:39 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:39 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:41 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:41 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:41 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:41 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:02:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:07:05 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:07:05 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:07:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:07:33 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:07:33 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:07:33 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:08:32 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:08:32 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:08:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:08:34 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:08:34 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:08:34 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:09:02 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:09:02 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:09:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:09:04 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:09:04 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:09:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:09:05 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:09:05 UTC] PHP Warning:  require(/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[30-Dec-2025 13:09:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mosconicuplive/demo.mosconicuplive.com/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
+[31-Dec-2025 19:36:50 UTC] PHP Parse error:  syntax error, unexpected token "readonly", expecting "abstract" or "final" or "class" in /home/mosconicuplive/demo.mosconicuplive.com/vendor/sebastian/version/src/Version.php on line 23
+[31-Dec-2025 19:36:53 UTC] PHP Parse error:  syntax error, unexpected token "readonly", expecting "abstract" or "final" or "class" in /home/mosconicuplive/demo.mosconicuplive.com/vendor/sebastian/version/src/Version.php on line 23

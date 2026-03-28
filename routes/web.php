@@ -100,5 +100,20 @@ Route::get('/fix-menu-data', function () {
     }
 });
 
+// Governing Body route
+Route::get('/governing-body', [App\Http\Controllers\GoverningBodyController::class, 'index'])->name('governing-body.index');
+
+// Online Course & Book Shop
+Route::prefix('shop')->name('shop.')->group(function () {
+    Route::get('/', [App\Http\Controllers\ShopController::class, 'index'])->name('index');
+    Route::get('/product/{product}', [App\Http\Controllers\ShopController::class, 'show'])->name('show');
+    Route::get('/checkout/{product}', [App\Http\Controllers\ShopController::class, 'checkout'])->name('checkout');
+    Route::post('/order/{product}', [App\Http\Controllers\ShopController::class, 'storeOrder'])->name('order.store');
+    Route::get('/success/{order}', [App\Http\Controllers\ShopController::class, 'success'])->name('success');
+    Route::get('/payment/automated/{order}', function ($order) {
+        return "Automated payment gateway integration coming soon (SSLCommerz/Shurjopay). Order ID: " . $order;
+    })->name('payment.automated');
+});
+
 // Dynamic page route (must be last to avoid conflicts)
 Route::get('/{slug}', [PageController::class, 'show'])->where('slug', '[a-z0-9-]+')->name('page.show');

@@ -102,6 +102,12 @@ class ManageHeader extends Page
                             ->required()
                             ->default(env('APP_NAME', 'School Name'))
                             ->maxLength(255),
+                        Forms\Components\TextInput::make('site_name_font_size')
+                            ->label('School Name Font Size')
+                            ->placeholder('e.g., 1.5rem or 24px')
+                            ->default('1.5rem')
+                            ->maxLength(255)
+                            ->helperText('Adjust the font size of the English School Name'),
                         Forms\Components\TextInput::make('site_name_bangla')
                             ->label('School Name (Bangla)')
                             ->required()
@@ -163,7 +169,27 @@ class ManageHeader extends Page
                             ->numeric()
                             ->default(10)
                             ->helperText('Number of recent notices to show in the scrolling bar'),
+                        Forms\Components\Select::make('ticker_position')
+                            ->label('Ticker Position (টিকার পজিশন)')
+                            ->options([
+                                'above_slider' => '⬆ Slider এর উপরে (Above Slider)',
+                                'below_slider' => '⬇ Slider এর নিচে (Below Slider) — Default',
+                            ])
+                            ->default('below_slider')
+                            ->helperText('LATEST NEWS ticker কোথায় দেখাবে তা নির্বাচন করুন')
+                            ->columnSpanFull(),
                     ])->columns(2),
+
+                Forms\Components\Section::make('Shop Module Settings')
+                    ->description('Enable or disable the Online Course / Book Sale feature.')
+                    ->schema([
+                        Forms\Components\Toggle::make('is_shop_enabled')
+                            ->label('Active Online Shop')
+                            ->default(true)
+                            ->onIcon('heroicon-m-check')
+                            ->offIcon('heroicon-m-x-mark')
+                            ->helperText('When disabled, the shop page and "Buy Now" buttons will be hidden from the website.'),
+                    ]),
 
                 Forms\Components\Section::make('Admin Settings')
                     // ->visible(fn() => auth()->user()->hasRole('super_admin')) // Temporarily disabled to ensure visibility

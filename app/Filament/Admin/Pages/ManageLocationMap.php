@@ -26,9 +26,6 @@ class ManageLocationMap extends Page
         $this->form->fill([
             'title' => $locationMap->title ?? 'Our Location',
             'embed_code' => $locationMap->embed_code ?? '',
-            'address' => $locationMap->address ?? '',
-            'phone' => $locationMap->phone ?? '',
-            'email' => $locationMap->email ?? '',
             'is_active' => $locationMap->is_active ?? false,
         ]);
     }
@@ -59,21 +56,6 @@ class ManageLocationMap extends Page
                             ->placeholder('<iframe src="https://www.google.com/maps/embed?pb=..." ...></iframe>')
                             ->rows(4)
                             ->columnSpanFull(),
-
-                        Forms\Components\TextInput::make('address')
-                            ->label('Address')
-                            ->maxLength(255)
-                            ->columnSpanFull(),
-
-                        Forms\Components\TextInput::make('phone')
-                            ->label('Phone')
-                            ->tel()
-                            ->maxLength(255),
-
-                        Forms\Components\TextInput::make('email')
-                            ->label('Email')
-                            ->email()
-                            ->maxLength(255),
                     ])
                     ->columns(2),
             ])

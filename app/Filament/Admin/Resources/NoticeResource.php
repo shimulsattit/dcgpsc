@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\NoticeResource\Pages;
 use App\Filament\Admin\Resources\NoticeResource\RelationManagers;
 use App\Models\Notice;
+use App\Services\GoogleDriveUploader;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,6 +13,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class NoticeResource extends Resource
 {
@@ -39,6 +41,21 @@ class NoticeResource extends Resource
                     ->rows(2)
                     ->placeholder('Paste Google Drive share link for PDF/Image...')
                     ->helperText('Google Drive শেয়ার লিংক দিন (PDF, Image ইত্যাদি)'),
+
+                Forms\Components\FileUpload::make('file_upload')
+                    ->label('Upload File to Google Drive (PDF/Image)')
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->dehydrated(false)
+                    ->storeFiles(false)
+                    ->helperText('ফাইল সিলেক্ট করলে Google Drive-এ আপলোড হবে এবং উপরের File URL ফিল্ডে লিংক বসে যাবে।')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if (! $state) return;
+                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                        if (! ($file instanceof TemporaryUploadedFile)) return;
+                        $shareLink = GoogleDriveUploader::uploadAndGetShareLink($file);
+                        $set('file', $shareLink);
+                    })
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('link')
                     ->label('Notice Link (নোটিশ লিংক)')
                     ->url()

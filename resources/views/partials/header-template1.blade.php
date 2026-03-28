@@ -67,7 +67,7 @@
 <div class="main-header">
     <div class="container">
         <div class="row align-items-center g-2">
-            <div class="col-md-1 col-12 text-center">
+            <div class="col-md-1 col-12 text-center d-flex justify-content-center justify-content-md-start">
                 <a href="{{ url('/') }}" title="Go to Homepage">
                     @if($header && $header->logo)
                         <img src="{{ $header->logo }}" alt="Logo" class="img-fluid"
@@ -81,10 +81,16 @@
                 </a>
             </div>
             <div class="col-md-8 col-12 ps-2 text-center text-md-start">
-                <h3 class="mb-1 fw-bold text-white" style="font-size: 1.5rem; letter-spacing: 0.5px;">
+                <h3 class="mb-1 fw-bold text-white"
+                    style="font-size: {{ $header->site_name_font_size ?? '1.5rem' }}; letter-spacing: 0.5px;">
                     {{ $header->site_name ?? $settings['site_name'] ?? 'BARISHAL CANTONMENT PUBLIC SCHOOL & COLLEGE' }}
                 </h3>
-                <h5 class="mb-1 text-white" style="font-weight: 400; font-size: 1.3rem;">
+                <!-- Google Font for Bangla -->
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+                </style>
+                <h5 class="mb-1 text-white"
+                    style="font-family: 'Hind Siliguri', sans-serif; font-weight: 500; font-size: 1.3rem;">
                     {{ $header->site_name_bangla ?? $settings['site_name_bangla'] ?? 'বরিশাল ক্যান্টনমেন্ট পাবলিক স্কুল ও কলেজ' }}
                 </h5>
                 <p class="mb-0 text-white-50" style="font-size: 0.95rem;">
@@ -118,36 +124,34 @@
 </div>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-custom sticky-top" style="background-color: var(--navbar-bg-color, #1e5540);">
+<nav class="navbar navbar-expand-md navbar-dark navbar-custom sticky-top" style="background-color: var(--navbar-bg-color, #1e5540); border-bottom: 1px solid rgba(255,255,255,0.1);">
     <div class="container">
-        {{-- Mobile Toggle Button --}}
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(255,255,255,0.5);">
+            <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse show" id="navbarContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-between">
+        <div class="collapse navbar-collapse" id="mainNav" style="visibility: visible !important;">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 @php
-                    $menus = \App\Models\Menu::where(function($q){
+                    $menus = \App\Models\Menu::where(function ($q) {
                         $q->whereNull('parent_id')->orWhere('parent_id', 0)->orWhere('parent_id', '');
                     })->where('is_active', true)->with('children')->orderBy('order')->get();
                 @endphp
-
                 @forelse($menus as $menu)
                     @if($menu->children->count() > 0)
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{ $menu->url ?? '#' }}"
+                            <a class="nav-link dropdown-toggle text-white" href="{{ $menu->url ?? '#' }}"
                                 id="navbarDropdown{{ $menu->id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-                                style="@if($menu->is_highlighted && $menu->highlight_color) background-color: {{ $menu->highlight_color }} !important; border-radius: 5px; @endif">
+                                @if($menu->is_highlighted && $menu->highlight_color)
+                                    style="background-color: {{ $menu->highlight_color }} !important; color: #ffffff !important; font-weight: 600; padding: 8px 15px; border-radius: 5px;"
+                                @endif>
                                 {{ $menu->title }}
                             </a>
-                            <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown{{ $menu->id }}">
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown{{ $menu->id }}">
                                 @foreach($menu->children as $child)
                                     <li>
-                                        <a class="dropdown-item" href="{{ $child->url ?? '#' }}" 
-                                            @if($child->is_highlighted && $child->highlight_color)
-                                                style="color: {{ $child->highlight_color }} !important; font-weight: 600;"
-                                            @endif>
+                                        <a class="dropdown-item" href="{{ $child->url ?? '#' }}" @if($child->is_highlighted && $child->highlight_color)
+                                            style="background-color: {{ $child->highlight_color }} !important; color: #ffffff !important; font-weight: 600; padding: 8px 15px; border-radius: 5px;"
+                                        @endif>
                                             {{ $child->title }}
                                         </a>
                                     </li>
@@ -156,8 +160,9 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ $menu->url ?? '#' }}" 
-                                style="@if($menu->is_highlighted && $menu->highlight_color) background-color: {{ $menu->highlight_color }} !important; border-radius: 5px; @endif">
+                            <a class="nav-link text-white" href="{{ $menu->url ?? '#' }}" @if($menu->is_highlighted && $menu->highlight_color)
+                                style="background-color: {{ $menu->highlight_color }} !important; color: #ffffff !important; font-weight: 600; padding: 8px 15px; border-radius: 5px;"
+                            @endif>
                                 {{ $menu->title }}
                             </a>
                         </li>

@@ -6,6 +6,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Storage;
+use Google\Client as GoogleClient;
+use Google\Service\Drive as GoogleDriveService;
+use Masbug\Flysystem\GoogleDriveAdapter;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -105,11 +109,15 @@ class AppServiceProvider extends ServiceProvider
                     return \App\Models\Message::active()->ordered()->get();
                 });
                 View::share('messages', $messages);
-
                 // Share specific roles for easier access (derived from cached collection)
+                View::share('founder', $messages->where('type', 'Founder')->first());
                 View::share('chiefPatron', $messages->where('type', 'Chief Patron')->first());
                 View::share('chairman', $messages->where('type', 'Chairman')->first());
                 View::share('principal', $messages->where('type', 'Principal')->first());
+                View::share('vicePrincipal', $messages->where('type', 'Vice Principal')->first());
+                View::share('headmaster', $messages->where('type', 'Headmaster')->first());
+
+
             }
 
             if (Schema::hasTable('sidebar_widgets')) {
@@ -194,6 +202,34 @@ class AppServiceProvider extends ServiceProvider
 
         } catch (\Exception $e) {
             // Silently fail if tables don't exist yet
+        }
+
+        // Register custom Google Drive filesystem disk (only if dependencies are installed)
+        if (class_exists(GoogleClient::class) && class_exists(GoogleDriveAdapter::class)) {
+            Storage::extend('gdrive', function ($app, $config) {
+                $client = new GoogleClient();
+
+                if (! empty($config['jsonKeyFile'])) {
+                    // JSON Path method (Service Account key file)
+                    $client->setAuthConfig($config['jsonKeyFile']);
+                    $client->setScopes([\Google\Service\Drive::DRIVE]);
+                } else {
+                    // Fallback: OAuth client + refresh token method
+                    $client->setClientId($config['clientId'] ?? null);
+                    $client->setClientSecret($config['clientSecret'] ?? null);
+                    $client->refreshToken($config['refreshToken'] ?? null);
+                }
+
+                $client->setApplicationName(config('app.name', 'Laravel Google Drive'));
+
+                $service = new GoogleDriveService($client);
+
+                $folderId = $config['folderId'] ?? null;
+
+                $adapter = new GoogleDriveAdapter($service, $folderId);
+
+                return new \League\Flysystem\Filesystem($adapter);
+            });
         }
     }
 }

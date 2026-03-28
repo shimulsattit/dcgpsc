@@ -94,12 +94,12 @@
             <div class="col-md-1 col-12 text-center">
                 <a href="{{ url('/') }}" title="Go to Homepage">
                     @if($header && $header->logo)
-                        <img src="{{ $header->logo }}" alt="Logo" class="img-fluid"
+                        <img src="{{ $header->logo }}" alt="Logo" class="img-fluid d-block mx-auto"
                             style="max-height: 100px; background: white; padding: 5px; border-radius: 10px; cursor: pointer;"
                             referrerpolicy="no-referrer">
                     @else
                         <img src="{{ $settings['logo'] ?? 'https://bacpsc.edu.bd/wp-content/uploads/2020/01/logo.png' }}"
-                            alt="Logo" class="img-fluid"
+                            alt="Logo" class="img-fluid d-block mx-auto"
                             style="max-height: 100px; background: white; padding: 5px; border-radius: 10px; cursor: pointer;">
                     @endif
                 </a>
@@ -130,7 +130,7 @@
              <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse show" id="navbarContent">
+        <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-between">
                 @php
                     $menus = \App\Models\Menu::where(function($q){
@@ -170,6 +170,15 @@
                 @empty
                     <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
                 @endforelse
+
+                {{-- Online Shop Link --}}
+                @if($header && $header->is_shop_enabled)
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-warning" href="{{ route('shop.index') }}">
+                            <i class="fas fa-shopping-cart me-1"></i> SHOP
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

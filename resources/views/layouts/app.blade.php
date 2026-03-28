@@ -383,14 +383,37 @@
             animation: fadeIn 0.8s ease;
         }
 
-        /* News Ticker Animation */
+        /* News Ticker Modern Scroller */
+        .ticker-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-wrapper {
+            display: flex;
+            white-space: nowrap;
+            padding-left: 100%; /* Start from far right */
+            animation: tickerScroll 30s linear infinite;
+        }
+
+        .ticker-wrapper:hover {
+            animation-play-state: paused;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding-right: 50px;
+        }
+
         @keyframes tickerScroll {
             0% {
                 transform: translateX(0);
             }
-
             100% {
-                transform: translateX(-50%);
+                transform: translateX(-100%);
             }
         }
 
@@ -515,6 +538,23 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Carousel Auto-play Fix (Bootstrap 5.2+ requires explicit initialization) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Auto-initialize all carousels and force cycle/autoplay on page load
+            document.querySelectorAll('.carousel').forEach(function (carouselEl) {
+                var interval = parseInt(carouselEl.getAttribute('data-bs-interval')) || 5000;
+                var carousel = new bootstrap.Carousel(carouselEl, {
+                    interval: interval,
+                    ride: true,
+                    pause: 'hover',
+                    wrap: true
+                });
+                carousel.cycle();
+            });
+        });
+    </script>
 
     <!-- Hover Dropdown Script -->
     <script>

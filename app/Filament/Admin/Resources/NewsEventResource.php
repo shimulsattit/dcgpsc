@@ -4,12 +4,14 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\NewsEventResource\Pages;
 use App\Models\NewsEvent;
+use App\Services\GoogleDriveUploader;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class NewsEventResource extends Resource
 {
@@ -72,6 +74,21 @@ class NewsEventResource extends Resource
                             ->label('Featured Image URL (Google Drive)')
                             ->rows(2)
                             ->helperText('Paste Google Drive share link'),
+
+                        Forms\Components\FileUpload::make('image_upload')
+                            ->label('Upload Image to Google Drive')
+                            ->image()
+                            ->dehydrated(false)
+                            ->storeFiles(false)
+                            ->helperText('ছবি সিলেক্ট করলে Google Drive-এ আপলোড হবে এবং উপরের Image URL ফিল্ডে লিংক বসে যাবে।')
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                if (! $state) return;
+                                $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                if (! ($file instanceof TemporaryUploadedFile)) return;
+                                $shareLink = GoogleDriveUploader::uploadAndGetShareLink($file);
+                                $set('image_url', $shareLink);
+                            })
+                            ->columnSpanFull(),
 
                         Forms\Components\Textarea::make('bulk_google_drive_urls')
                             ->label('Bulk Upload - Google Drive URLs (Optional)')

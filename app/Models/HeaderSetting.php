@@ -22,16 +22,20 @@ class HeaderSetting extends Model
         'logo_url',
         'favicon_url',
         'site_name',
+        'site_name_font_size',
         'site_name_bangla',
         'eiin',
         'action_buttons',
         'show_notice_ticker',
         'notice_ticker_limit',
+        'ticker_position',
+        'is_shop_enabled',
     ];
 
     protected $casts = [
         'show_login_link' => 'boolean',
         'show_notice_ticker' => 'boolean',
+        'is_shop_enabled' => 'boolean',
         'phones' => 'array',
         'action_buttons' => 'array',
         'notice_ticker_limit' => 'integer',

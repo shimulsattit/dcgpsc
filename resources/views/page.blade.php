@@ -19,6 +19,15 @@
         <!-- Page Content -->
         <div class="card shadow-sm border-0">
             <div class="card-body p-4 p-md-5">
+                @if($page->image_url)
+                    <div class="mb-4 text-center overflow-hidden rounded shadow-sm">
+                        <img src="{{ \App\Helpers\GoogleDriveHelper::getDirectUrl($page->image_url) }}" 
+                             alt="{{ $page->title }}" 
+                             class="img-fluid w-100" 
+                             style="max-height: 600px; object-fit: cover; object-position: center;">
+                    </div>
+                @endif
+
                 @if($page->content)
                     <div class="page-content" style="line-height: 1.8;">
                         {!! Str::markdown($page->content) !!}

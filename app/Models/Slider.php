@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use App\Helpers\GoogleDriveHelper;
 
 class Slider extends Model
@@ -16,6 +17,22 @@ class Slider extends Model
         'is_active' => 'boolean',
         'order' => 'integer',
     ];
+
+    /**
+     * Auto-clear slider cache on save or delete
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(function () {
+            Cache::forget('homepage.sliders');
+        });
+
+        static::deleted(function () {
+            Cache::forget('homepage.sliders');
+        });
+    }
 
     /**
      * Get the image_url attribute with Google Drive URL conversion

@@ -9,7 +9,7 @@ class ImportantLink extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'url', 'order', 'is_active'];
+    protected $fillable = ['title', 'url', 'order', 'is_active', 'menu_id'];
 
     protected $casts = [
         'is_active' => 'boolean',
@@ -24,5 +24,23 @@ class ImportantLink extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('order', 'asc');
+    }
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function (ImportantLink $link) {
+            // If linked to a menu, always sync title & url from that menu
+            if ($link->menu_id && $link->menu) {
+                $link->title = $link->menu->title;
+                $link->url = $link->menu->url;
+            }
+        });
     }
 }

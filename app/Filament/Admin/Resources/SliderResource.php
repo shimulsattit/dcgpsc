@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\SliderResource\Pages;
 use App\Filament\Admin\Resources\SliderResource\RelationManagers;
 use App\Models\Slider;
+use App\Services\GoogleDriveUploader;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,6 +13,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class SliderResource extends Resource
 {
@@ -33,11 +35,36 @@ class SliderResource extends Resource
                     ->placeholder('Optional slider title'),
 
                 Forms\Components\Textarea::make('image_url')
-                    ->label('Image URL (ছবির লিংক)')
-                    ->required()
+                    ->label('Image URL (Google Drive লিংক)')
                     ->rows(3)
-                    ->placeholder('Paste Google Drive share link or image URL here...')
-                    ->helperText('Google Drive লিংক দিন অথবা সরাসরি image URL দিন। Google Drive লিংক automatically convert হবে। (Recommended Size: 1200px x 400px)')
+                    ->placeholder('Paste Google Drive share link or direct image URL...')
+                    ->helperText('Google Drive share link পেস্ট করলেই ফ্রন্টএন্ডে ছবি ঠিকমতো দেখা যাবে (helper already configured).')
+                    ->required()
+                    ->columnSpanFull(),
+
+                Forms\Components\FileUpload::make('image_upload')
+                    ->label('Upload to Google Drive (optional)')
+                    ->image()
+                    ->dehydrated(false)
+                    ->storeFiles(false)
+                    ->helperText('লোকাল থেকে ফাইল সিলেক্ট করে আপলোড করলে Google Drive এ যাবে এবং উপরের Image URL ফিল্ডে অটো share link বসে যাবে।')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if (! $state) {
+                            return;
+                        }
+
+                        $file = $state;
+                        if (is_array($state)) {
+                            $file = $state[0] ?? null;
+                        }
+
+                        if (! ($file instanceof TemporaryUploadedFile)) {
+                            return;
+                        }
+
+                        $shareLink = GoogleDriveUploader::uploadAndGetShareLink($file);
+                        $set('image_url', $shareLink);
+                    })
                     ->columnSpanFull(),
 
                 Forms\Components\TextInput::make('link')

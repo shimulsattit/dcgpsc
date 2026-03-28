@@ -60,6 +60,20 @@ return [
             'report' => false,
         ],
 
+        'gdrive' => [
+            'driver' => 'gdrive',
+            // EITHER: JSON key file for Service Account (recommended)
+            'jsonKeyFile' => env('GOOGLE_DRIVE_SERVICE_ACCOUNT_JSON'),
+
+            // OR: OAuth client credentials + refresh token (if you ever use that flow)
+            'clientId' => env('GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+
+            // Root folder in your Drive where files will be stored
+            'folderId' => env('GOOGLE_DRIVE_FOLDER_ID', null),
+        ],
+
     ],
 
     /*

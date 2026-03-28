@@ -6,6 +6,11 @@
 
     {{-- Template 3: Minimal Clean Layout with Full Width Slider --}}
 
+    {{-- Ticker ABOVE Slider (if configured) --}}
+    @if(($headerSettings->ticker_position ?? 'below_slider') === 'above_slider')
+        @include('partials.notice-ticker', ['wrapContainer' => true, 'tickerMargin' => 'mt-2 mb-2'])
+    @endif
+
     {{-- Slider Section - Full Width Container --}}
     <div class="container mb-4">
         <div id="heroCarousel" class="carousel slide carousel-fade shadow-sm" data-bs-ride="carousel"
@@ -52,22 +57,34 @@
         </div>
     </div>
 
-    {{-- Messages Section - Below Slider --}}
+    {{-- Ticker BELOW Slider (default) --}}
+    @if(($headerSettings->ticker_position ?? 'below_slider') !== 'above_slider')
+        @include('partials.notice-ticker', ['wrapContainer' => true, 'tickerMargin' => 'mb-3'])
+    @endif
     <div class="container mb-4">
         @php
             // Collect all messages
             $allMessages = collect();
+            if (isset($founder) && $founder) {
+                $allMessages->push(['message' => $founder, 'title' => $founder->title ?? 'Message of the Founder']);
+            }
             if (isset($chiefPatron) && $chiefPatron) {
-                $allMessages->push(['message' => $chiefPatron, 'title' => 'Message of the Chief Patron']);
+                $allMessages->push(['message' => $chiefPatron, 'title' => $chiefPatron->title ?? 'Message of the Chief Patron']);
             }
             if (isset($chairman) && $chairman) {
-                $allMessages->push(['message' => $chairman, 'title' => 'Message of the Chairman']);
+                $allMessages->push(['message' => $chairman, 'title' => $chairman->title ?? 'Message of the Chairman']);
             }
             if (isset($principal) && $principal) {
-                $allMessages->push(['message' => $principal, 'title' => 'Message of the Principal']);
+                $allMessages->push(['message' => $principal, 'title' => $principal->title ?? 'Message of the Principal']);
             }
-            // Limit to maximum 3 messages
-            $displayMessages = $allMessages->take(3);
+            if (isset($vicePrincipal) && $vicePrincipal) {
+                $allMessages->push(['message' => $vicePrincipal, 'title' => $vicePrincipal->title ?? 'Message of the Vice Principal']);
+            }
+            if (isset($headmaster) && $headmaster) {
+                $allMessages->push(['message' => $headmaster, 'title' => $headmaster->title ?? 'Message of the Headmaster']);
+            }
+            // Limit to maximum 5 messages
+            $displayMessages = $allMessages->take(5);
 
             // Get selected message card design from settings
             $messageCardDesign = $settings['message_card_design'] ?? 'solid';

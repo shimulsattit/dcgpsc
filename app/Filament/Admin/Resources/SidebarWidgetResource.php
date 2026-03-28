@@ -35,7 +35,8 @@ class SidebarWidgetResource extends Resource
                         'video' => 'Video Embed (ভিডিও)',
                         'text' => 'Text Content (লেখা)',
                         'calendar' => 'Calendar (ক্যালেন্ডার)',
-                        'link' => 'Important Link (গুরুত্বপূর্ণ লিংক)',
+                        'important_links' => 'Important Links List (সবগুলো লিংক)',
+                        'link' => 'Single Link (একটি লিংক)',
                     ])
                     ->required()
                     ->reactive(),

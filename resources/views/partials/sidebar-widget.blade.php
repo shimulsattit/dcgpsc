@@ -77,6 +77,25 @@
                     <span>{{ $widget->content }}</span>
                 </a>
             </div>
+        @elseif($widget->type == 'important_links')
+            <div class="list-group list-group-flush text-start" style="background-color: {{ $settings['info_body_bg'] ?? 'var(--header-bg-color)' }};">
+                @if(isset($importantLinks) && $importantLinks->count() > 0)
+                    @foreach($importantLinks as $link)
+                        @php
+                            $title = $link->menu->title ?? $link->title;
+                            $url = $link->menu->url ?? $link->url;
+                        @endphp
+                        <a href="{{ $url }}"
+                            class="list-group-item list-group-item-action bg-transparent fw-bold d-flex align-items-center py-2"
+                            style="color: {{ $settings['info_text_color'] ?? 'var(--accent-color)' }}; border-bottom: 1px solid {{ $settings['info_border_color'] ?? 'rgba(255, 255, 255, 0.1)' }}; font-size: 0.9rem;">
+                            <span class="me-2" style="color: {{ $settings['info_icon_color'] ?? $settings['info_text_color'] ?? 'var(--accent-color)' }}; font-size: 1.1em;">☘</span>
+                            {{ $title }}
+                        </a>
+                    @endforeach
+                @else
+                    <div class="p-3 text-center text-muted small">No links available</div>
+                @endif
+            </div>
         @endif
     </div>
 </div>

@@ -5,12 +5,14 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\PageResource\Pages;
 use App\Models\Page;
 use App\Models\Menu;
+use App\Services\GoogleDriveUploader;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class PageResource extends Resource
 {
@@ -42,6 +44,28 @@ class PageResource extends Resource
                             ->unique(ignoreRecord: true)
                             ->helperText('Auto-generated from title. Edit if needed.')
                             ->maxLength(255),
+                        Forms\Components\TextInput::make('image_url')
+                            ->label('Top Image (Google Drive Link)')
+                            ->helperText('Paste a Google Drive image sharing link to show at the top of the page.')
+                            ->placeholder('https://drive.google.com/file/d/...')
+                            ->maxLength(500)
+                            ->columnSpanFull(),
+
+                        Forms\Components\FileUpload::make('image_upload')
+                            ->label('Upload Image to Google Drive')
+                            ->image()
+                            ->dehydrated(false)
+                            ->storeFiles(false)
+                            ->helperText('ছবি সিলেক্ট করলে Google Drive-এ আপলোড হবে এবং উপরের Image URL ফিল্ডে লিংক বসে যাবে।')
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                if (! $state) return;
+                                $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                if (! ($file instanceof TemporaryUploadedFile)) return;
+                                $shareLink = GoogleDriveUploader::uploadAndGetShareLink($file);
+                                $set('image_url', $shareLink);
+                            })
+                            ->columnSpanFull(),
+
                         Forms\Components\Select::make('menu_id')
                             ->label('Assign to Menu')
                             ->options(Menu::all()->pluck('title', 'id'))
