@@ -27,15 +27,18 @@ class HeaderSetting extends Model
         'eiin',
         'action_buttons',
         'show_notice_ticker',
+        'notice_ticker_label',
         'notice_ticker_limit',
         'ticker_position',
         'is_shop_enabled',
+        'show_top_bar',
     ];
 
     protected $casts = [
         'show_login_link' => 'boolean',
         'show_notice_ticker' => 'boolean',
         'is_shop_enabled' => 'boolean',
+        'show_top_bar' => 'boolean',
         'phones' => 'array',
         'action_buttons' => 'array',
         'notice_ticker_limit' => 'integer',

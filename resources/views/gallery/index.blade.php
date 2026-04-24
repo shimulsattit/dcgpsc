@@ -53,9 +53,6 @@
                                     <h3 class="h6 fw-bold mb-1 text-dark text-truncate" style="color: var(--primary-color) !important;">
                                         {{ $gallery->title }}
                                     </h3>
-                                    <p class="text-muted small mb-0">
-                                        <i class="fas fa-folder-open me-1"></i> Google Drive Album
-                                    </p>
                                 </div>
                             </div>
                         </div>

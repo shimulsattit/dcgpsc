@@ -5,7 +5,7 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\NoticeResource\Pages;
 use App\Filament\Admin\Resources\NoticeResource\RelationManagers;
 use App\Models\Notice;
-use App\Services\GoogleDriveUploader;
+use App\Services\R2Uploader;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -37,23 +37,23 @@ class NoticeResource extends Resource
                     ->label('Content (বিস্তারিত)')
                     ->columnSpanFull(),
                 Forms\Components\Textarea::make('file')
-                    ->label('File URL (ফাইল লিংক - Google Drive)')
+                    ->label('File URL (ফাইল লিংক)')
                     ->rows(2)
-                    ->placeholder('Paste Google Drive share link for PDF/Image...')
-                    ->helperText('Google Drive শেয়ার লিংক দিন (PDF, Image ইত্যাদি)'),
+                    ->placeholder('https://...')
+                    ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে আপলোড করুন'),
 
                 Forms\Components\FileUpload::make('file_upload')
-                    ->label('Upload File to Google Drive (PDF/Image)')
+                    ->label('Upload File to Cloudflare R2 (PDF/Image)')
                     ->acceptedFileTypes(['image/*', 'application/pdf'])
                     ->dehydrated(false)
                     ->storeFiles(false)
-                    ->helperText('ফাইল সিলেক্ট করলে Google Drive-এ আপলোড হবে এবং উপরের File URL ফিল্ডে লিংক বসে যাবে।')
+                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের File URL ফিল্ডে লিংক বসে যাবে।')
                     ->afterStateUpdated(function ($state, callable $set) {
                         if (! $state) return;
                         $file = is_array($state) ? ($state[0] ?? null) : $state;
                         if (! ($file instanceof TemporaryUploadedFile)) return;
-                        $shareLink = GoogleDriveUploader::uploadAndGetShareLink($file);
-                        $set('file', $shareLink);
+                        $url = R2Uploader::uploadAndGetUrl($file, 'notices');
+                        $set('file', $url);
                     })
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('link')

@@ -4,7 +4,7 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\NewsEventResource\Pages;
 use App\Models\NewsEvent;
-use App\Services\GoogleDriveUploader;
+use App\Services\R2Uploader;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -71,22 +71,22 @@ class NewsEventResource extends Resource
                 Forms\Components\Section::make('Image')
                     ->schema([
                         Forms\Components\Textarea::make('image_url')
-                            ->label('Featured Image URL (Google Drive)')
+                            ->label('Featured Image URL')
                             ->rows(2)
-                            ->helperText('Paste Google Drive share link'),
+                            ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে ছবি আপলোড করুন'),
 
                         Forms\Components\FileUpload::make('image_upload')
-                            ->label('Upload Image to Google Drive')
+                            ->label('Upload Image to Cloudflare R2')
                             ->image()
                             ->dehydrated(false)
                             ->storeFiles(false)
-                            ->helperText('ছবি সিলেক্ট করলে Google Drive-এ আপলোড হবে এবং উপরের Image URL ফিল্ডে লিংক বসে যাবে।')
+                            ->helperText('ছবি সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Image URL ফিল্ডে লিংক বসে যাবে।')
                             ->afterStateUpdated(function ($state, callable $set) {
                                 if (! $state) return;
                                 $file = is_array($state) ? ($state[0] ?? null) : $state;
                                 if (! ($file instanceof TemporaryUploadedFile)) return;
-                                $shareLink = GoogleDriveUploader::uploadAndGetShareLink($file);
-                                $set('image_url', $shareLink);
+                                $url = R2Uploader::uploadAndGetUrl($file, 'news-events');
+                                $set('image_url', $url);
                             })
                             ->columnSpanFull(),
 

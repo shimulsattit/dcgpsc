@@ -4,7 +4,7 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\GoverningBodyMemberResource\Pages;
 use App\Models\GoverningBodyMember;
-use App\Services\GoogleDriveUploader;
+use App\Services\R2Uploader;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -100,34 +100,34 @@ class GoverningBodyMemberResource extends Resource
                 Forms\Components\Section::make('Photo')
                     ->schema([
                         Forms\Components\Textarea::make('photo_url')
-                            ->label('Photo URL (Google Drive লিংক)')
+                            ->label('Photo URL')
                             ->rows(2)
-                            ->placeholder('Paste Google Drive share link...')
-                            ->helperText('Google Drive ছবির share লিংক দিন।')
+                            ->placeholder('https://...')
+                            ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে ফোটো আপলোড করুন।')
                             ->reactive(),
 
                         Forms\Components\Placeholder::make('photo_preview')
                             ->label('Photo Preview')
                             ->content(fn(Forms\Get $get) => $get('photo_url')
                                 ? new \Illuminate\Support\HtmlString(
-                                    '<img src="' . \App\Helpers\GoogleDriveHelper::getDirectUrl($get('photo_url')) . '"
+                                    '<img src="' . $get('photo_url') . '"
                                      style="max-width: 120px; border-radius: 8px; border: 2px solid #ccc;" referrerpolicy="no-referrer">'
                                 )
                                 : 'No photo URL provided')
                             ->columnSpanFull(),
 
                         Forms\Components\FileUpload::make('photo_upload')
-                            ->label('Upload Photo to Google Drive')
+                            ->label('Upload Photo to Cloudflare R2')
                             ->image()
                             ->dehydrated(false)
                             ->storeFiles(false)
-                            ->helperText('ছবি সিলেক্ট করলে Google Drive-এ আপলোড হবে এবং উপরের Photo URL ফিল্ডে লিংক বসে যাবে।')
+                            ->helperText('ফোটো সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Photo URL ফিল্ডে লিংক বসে যাবে।')
                             ->afterStateUpdated(function ($state, callable $set) {
                                 if (! $state) return;
                                 $file = is_array($state) ? ($state[0] ?? null) : $state;
                                 if (! ($file instanceof TemporaryUploadedFile)) return;
-                                $shareLink = GoogleDriveUploader::uploadAndGetShareLink($file);
-                                $set('photo_url', $shareLink);
+                                $url = R2Uploader::uploadAndGetUrl($file, 'governing-body');
+                                $set('photo_url', $url);
                             })
                             ->columnSpanFull(),
                     ]),

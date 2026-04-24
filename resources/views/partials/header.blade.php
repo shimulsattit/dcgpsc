@@ -95,12 +95,12 @@
                 <a href="{{ url('/') }}" title="Go to Homepage">
                     @if($header && $header->logo)
                         <img src="{{ $header->logo }}" alt="Logo" class="img-fluid d-block mx-auto"
-                            style="max-height: 100px; background: white; padding: 5px; border-radius: 10px; cursor: pointer;"
+                            style="max-height: 100px; cursor: pointer;"
                             referrerpolicy="no-referrer">
                     @else
                         <img src="{{ $settings['logo'] ?? 'https://bacpsc.edu.bd/wp-content/uploads/2020/01/logo.png' }}"
                             alt="Logo" class="img-fluid d-block mx-auto"
-                            style="max-height: 100px; background: white; padding: 5px; border-radius: 10px; cursor: pointer;">
+                            style="max-height: 100px; cursor: pointer;">
                     @endif
                 </a>
             </div>

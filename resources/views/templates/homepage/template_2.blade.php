@@ -176,8 +176,7 @@
                                         <div class="card h-100 border-0 shadow-sm">
                                             @if($news->image)
                                                 <img src="{{ $news->image }}" class="card-img-top" alt="{{ $news->title }}"
-                                                    style="height: 200px; object-fit: cover;" loading="lazy"
-                                                    referrerpolicy="no-referrer">
+                                                    style="height: 200px; object-fit: cover;" loading="lazy">
                                             @endif
                                             <div class="card-body d-flex flex-column">
                                                 <h6 class="card-title fw-bold">{{ Str::words($news->title, 7, '...') }}</h6>

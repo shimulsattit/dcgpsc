@@ -11,13 +11,7 @@ use Filament\Notifications\Notification;
 
 class ManageFooter extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-bars-arrow-down';
-
-    protected static ?string $navigationGroup = 'Site Management';
-
-    protected static ?int $navigationSort = 6;
-
-    protected static ?string $navigationLabel = 'Footer Settings';
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static string $view = 'filament.admin.pages.manage-footer';
 

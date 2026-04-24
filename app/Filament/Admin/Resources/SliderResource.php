@@ -5,7 +5,7 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\SliderResource\Pages;
 use App\Filament\Admin\Resources\SliderResource\RelationManagers;
 use App\Models\Slider;
-use App\Services\GoogleDriveUploader;
+use App\Services\R2Uploader;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -35,19 +35,19 @@ class SliderResource extends Resource
                     ->placeholder('Optional slider title'),
 
                 Forms\Components\Textarea::make('image_url')
-                    ->label('Image URL (Google Drive লিংক)')
+                    ->label('Image URL')
                     ->rows(3)
-                    ->placeholder('Paste Google Drive share link or direct image URL...')
-                    ->helperText('Google Drive share link পেস্ট করলেই ফ্রন্টএন্ডে ছবি ঠিকমতো দেখা যাবে (helper already configured).')
+                    ->placeholder('সরাসরি image URL দিন অথবা নিচ থেকে R2-তে আপলোড করুন...')
+                    ->helperText('Direct image URL দিন অথবা নিচের আপলোড অপশন ব্যবহার করুন।')
                     ->required()
                     ->columnSpanFull(),
 
                 Forms\Components\FileUpload::make('image_upload')
-                    ->label('Upload to Google Drive (optional)')
+                    ->label('Upload to Cloudflare R2 (optional)')
                     ->image()
                     ->dehydrated(false)
                     ->storeFiles(false)
-                    ->helperText('লোকাল থেকে ফাইল সিলেক্ট করে আপলোড করলে Google Drive এ যাবে এবং উপরের Image URL ফিল্ডে অটো share link বসে যাবে।')
+                    ->helperText('ছবি সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Image URL ফিল্ডে অটো লিংক বসে যাবে।')
                     ->afterStateUpdated(function ($state, callable $set) {
                         if (! $state) {
                             return;
@@ -62,8 +62,8 @@ class SliderResource extends Resource
                             return;
                         }
 
-                        $shareLink = GoogleDriveUploader::uploadAndGetShareLink($file);
-                        $set('image_url', $shareLink);
+                        $url = R2Uploader::uploadAndGetUrl($file, 'sliders');
+                        $set('image_url', $url);
                     })
                     ->columnSpanFull(),
 

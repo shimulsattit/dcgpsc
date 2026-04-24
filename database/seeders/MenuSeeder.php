@@ -68,7 +68,7 @@ class MenuSeeder extends Seeder
             [
                 'id' => 5,
                 'title' => 'Notice',
-                'url' => 'http://barishal.test/notices',
+                'url' => '/notices',
                 'page_id' => null,
                 'parent_id' => null,
                 'order' => 10,
@@ -159,7 +159,7 @@ class MenuSeeder extends Seeder
             [
                 'id' => 35,
                 'title' => 'Photo Gallery',
-                'url' => '/gallery',
+                'url' => 'https://dhakacanttgirl-my.sharepoint.com/personal/photo_archive_dcgpsc_edu_bd/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fphoto%5Farchive%5Fdcgpsc%5Fedu%5Fbd%2FDocuments%2FPhoto%20Archive&ga=1',
                 'page_id' => null,
                 'parent_id' => 34,
                 'order' => 1,
@@ -172,7 +172,7 @@ class MenuSeeder extends Seeder
             [
                 'id' => 36,
                 'title' => 'Video Gallery',
-                'url' => 'http://barishal.test/video-gallery',
+                'url' => '/video-gallery',
                 'page_id' => null,
                 'parent_id' => 34,
                 'order' => 2,

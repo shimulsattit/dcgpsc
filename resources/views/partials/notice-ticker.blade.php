@@ -16,7 +16,7 @@
                     <div class="d-none d-md-flex align-items-center justify-content-center px-4"
                         style="background: color-mix(in srgb, var(--ticker-bg-color) 70%, black); color: white; font-weight: 600; font-size: 0.95rem; white-space: nowrap; min-width: 150px;">
                         <i class="fas fa-newspaper me-2"></i>
-                        LATEST NEWS
+                        {{ $headerSettings->notice_ticker_label ?? 'LATEST NEWS' }}
                     </div>
 
                     {{-- Scrolling Ticker --}}

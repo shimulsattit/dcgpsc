@@ -20,8 +20,30 @@
             </div>
         </div>
 
-        <!-- Google Drive Folder Embed -->
-        @if($gallery->google_drive_folder_link)
+        <!-- R2 Image Gallery -->
+        @if(!empty($gallery->images) && count($gallery->images) > 0)
+            <div class="row g-3 mb-5">
+                @foreach($gallery->images as $image)
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                            <a href="{{ $image }}" target="_blank">
+                                <img src="{{ $image }}" class="img-fluid gallery-image" 
+                                     alt="Gallery Image" style="height: 200px; width: 100%; object-fit: cover; transition: transform 0.3s;">
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <style>
+                .gallery-image:hover {
+                    transform: scale(1.05);
+                }
+            </style>
+        @endif
+
+        <!-- Google Drive Folder Embed (Fallback) -->
+        @if(empty($gallery->images) && $gallery->google_drive_folder_link)
             @php
                 // Extract folder ID from Google Drive link
                 preg_match('/folders\/([a-zA-Z0-9_-]+)/', $gallery->google_drive_folder_link, $matches);
@@ -50,9 +72,9 @@
                     Invalid Google Drive folder link.
                 </div>
             @endif
-        @else
+        @elseif(empty($gallery->images) && !$gallery->google_drive_folder_link)
             <div class="text-center py-5">
-                <h4 class="text-muted">No folder link provided for this album.</h4>
+                <h4 class="text-muted">No images or folder link provided for this album.</h4>
             </div>
         @endif
     </div>

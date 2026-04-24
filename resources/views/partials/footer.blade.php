@@ -6,7 +6,7 @@
                 <div class="col-lg-3">
                     @if($footerSettings->logo)
                         <img src="{{ $footerSettings->logo }}" alt="{{ $footerSettings->school_name }}" class="mb-3"
-                            style="max-height: 80px; background: white; padding: 5px; border-radius: 8px;"
+                            style="max-height: 80px;"
                             referrerpolicy="no-referrer">
                     @endif
                     <h6 class="fw-bold">{{ $footerSettings->school_name }}</h6>
@@ -110,7 +110,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <p class="mb-0 small">{{ $footerSettings->copyright_text }}</p>
+                    <p class="mb-0 small">{{ str_replace('{year}', date('Y'), $footerSettings->copyright_text) }}</p>
                 </div>
                 <div class="col-md-4 text-md-end">
                     @if($footerSettings->privacy_policy_url)

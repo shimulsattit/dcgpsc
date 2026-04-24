@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Services\R2Uploader;
 use Illuminate\Support\Str;
 
 class PhotoGalleryResource extends Resource
@@ -22,16 +23,18 @@ class PhotoGalleryResource extends Resource
 
     protected static ?string $navigationGroup = 'Photo Gallery'; // User requested "Photo Gallerie" expandable
 
-    protected static ?string $modelLabel = 'Album'; // "All Albulm"
+    protected static ?string $modelLabel = 'Photo Gallery';
 
-    protected static ?string $navigationLabel = 'All Albums';
+    protected static ?string $pluralModelLabel = 'Photo Gallery';
+
+    protected static ?string $navigationLabel = 'Photo Gallery';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\Section::make('Album Details')
-                    ->description('Create a photo album using Google Drive folder')
+                    ->description('Create a photo album using Cloudflare R2 storage')
                     ->schema([
                         Forms\Components\TextInput::make('title')
                             ->label('Album Title')
@@ -45,27 +48,26 @@ class PhotoGalleryResource extends Resource
                             ->maxLength(255)
                             ->unique(ignoreRecord: true),
 
-                        Forms\Components\TextInput::make('google_drive_folder_link')
-                            ->label('Google Drive Folder Link')
-                            ->required()
-                            ->url()
-                            ->placeholder('https://drive.google.com/drive/folders/FOLDER_ID')
-                            ->helperText('Paste the Google Drive folder sharing link. Make sure the folder is publicly accessible.')
+                        Forms\Components\TextInput::make('thumbnail_url')
+                            ->label('Thumbnail URL (Manual/Override)')
+                            ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে আপলোড করুন। (ফাঁকা রাখলে গ্যালারির প্রথম ছবি থাম্বনেইল হিসেবে ব্যবহৃত হবে)')
+                            ->placeholder('https://...')
+                            ->maxLength(500)
                             ->columnSpanFull(),
 
-                        Forms\Components\TextInput::make('thumbnail_image_id')
-                            ->label('Thumbnail Image ID (Optional)')
-                            ->placeholder('Enter Google Drive image file ID')
-                            ->helperText('Open any image in the folder, copy the ID from URL (e.g., /d/IMAGE_ID/view). You can also paste the full link, it will be automatically converted to ID.')
-                            ->dehydrateStateUsing(fn($state) => \App\Helpers\GoogleDriveHelper::extractFileId($state) ?? $state)
-                            ->columnSpanFull(),
-
-                        Forms\Components\FileUpload::make('manual_thumbnail')
-                            ->label('OR Upload Thumbnail Manually')
+                        Forms\Components\FileUpload::make('thumbnail_upload_handler')
+                            ->label('Upload New Thumbnail to Cloudflare R2')
                             ->image()
-                            ->imageEditor()
-                            ->directory('galleries/thumbnails')
-                            ->helperText('Upload a thumbnail image if you prefer not to use Google Drive image ID.')
+                            ->dehydrated(false)
+                            ->storeFiles(false)
+                            ->helperText('নতুন ছবি সিলেক্ট করলে সেটি R2-তে আপলোড হবে এবং উপরের Thumbnail URL ফিল্ডটি আপডেট হবে।')
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                if (! $state) return;
+                                $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                $url = R2Uploader::uploadAndGetUrl($file, 'galleries/thumbnails');
+                                $set('thumbnail_url', $url);
+                            })
                             ->columnSpanFull(),
 
                         Forms\Components\DatePicker::make('published_at')
@@ -76,6 +78,71 @@ class PhotoGalleryResource extends Resource
                             ->label('Active')
                             ->default(true)
                             ->required(),
+
+                        Forms\Components\Section::make('Gallery Management')
+                            ->description('Manage album images stored in Cloudflare R2.')
+                            ->schema([
+                                Forms\Components\FileUpload::make('gallery_upload_handler')
+                                    ->label('Add More Images to Gallery')
+                                    ->multiple()
+                                    ->image()
+                                    ->imageEditor()
+                                    ->dehydrated(false)
+                                    ->storeFiles(false)
+                                    ->helperText('এখানে ছবি দিলে সেগুলো R2-তে আপলোড হবে এবং নিচের তালিকায় যুক্ত হবে।')
+
+                                    ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                                        if (!$state) return;
+                                        
+                                        $currentImages = $get('images') ?? [];
+                                        
+                                        foreach ((array)$state as $file) {
+                                            if ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile) {
+                                                $url = \App\Services\R2Uploader::uploadAndGetUrl($file, 'galleries/images');
+                                                if ($url) {
+                                                    $currentImages[] = ['url' => $url];
+                                                }
+                                            }
+                                        }
+                                        
+                                        $set('images', $currentImages);
+                                    })
+                                    ->columnSpanFull(),
+
+                                Forms\Components\Repeater::make('images')
+                                    ->label('Existing Gallery Images (URLs)')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('url')
+                                            ->label('Image URL')
+                                            ->disabled()
+                                            ->columnSpan(3),
+                                        Forms\Components\Placeholder::make('preview')
+                                            ->content(fn ($get) => view('filament.forms.components.image-preview', ['imageUrl' => $get('url')]))
+                                            ->columnSpan(1),
+                                    ])
+                                    ->grid(2)
+                                    ->reorderable()
+                                    ->dehydrated(true)
+                                    ->columnSpanFull()
+                                    ->afterStateHydrated(function (Forms\Components\Repeater $component, $state) {
+                                        // Convert simple array of strings to array of objects for Repeater
+                                        if (is_array($state)) {
+                                            $formatted = [];
+                                            foreach($state as $url) {
+                                                if (is_string($url)) {
+                                                    $formatted[] = ['url' => $url];
+                                                } else {
+                                                    $formatted[] = $url;
+                                                }
+                                            }
+                                            $component->state($formatted);
+                                        }
+                                    })
+                                    ->dehydrateStateUsing(function ($state) {
+                                        // Convert back to simple array of strings for DB
+                                        return collect($state)->pluck('url')->filter()->values()->toArray();
+                                    }),
+                            ]),
                     ])->columns(2),
             ]);
     }

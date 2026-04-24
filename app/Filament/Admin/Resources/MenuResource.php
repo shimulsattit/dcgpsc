@@ -33,11 +33,62 @@ class MenuResource extends Resource
                             ->label('Link Source')
                             ->options([
                                 'page' => 'Page',
+                                'system' => 'System Route (Notice, Gallery, etc.)',
                                 'custom' => 'Custom URL',
                             ])
                             ->default('page')
                             ->reactive()
+                            ->afterStateHydrated(function ($state, $record, Forms\Set $set) {
+                                if ($record && !$record->page_id) {
+                                    $systemRoutes = ['/', '/notices', '/gallery', '/video-gallery', '/governing-body', '/achievements', '/news'];
+                                    if (in_array($record->url, $systemRoutes)) {
+                                        $set('link_source', 'system');
+                                        $set('system_route', $record->url);
+                                    } else {
+                                        $set('link_source', 'custom');
+                                    }
+                                }
+                            })
                             ->afterStateUpdated(fn($state, Forms\Set $set) => $state === 'page' ? $set('url', null) : $set('page_id', null)),
+
+                        Forms\Components\Select::make('system_route')
+                            ->label('Select System Route')
+                            ->options([
+                                '/' => 'Home',
+                                '/notices' => 'Notices/Notice Board',
+                                '/gallery' => 'Photo Gallery',
+                                '/video-gallery' => 'Video Gallery',
+                                '/governing-body' => 'Governing Body',
+                                '/achievements' => 'Achievements',
+                                '/news' => 'News & Events',
+                            ])
+                            ->visible(fn(Forms\Get $get) => $get('link_source') === 'system')
+                            ->reactive()
+                            ->afterStateHydrated(function ($state, $record, Forms\Set $set) {
+                                if ($record && !$record->page_id) {
+                                    $systemRoutes = ['/', '/notices', '/gallery', '/video-gallery', '/governing-body', '/achievements', '/news'];
+                                    if (in_array($record->url, $systemRoutes)) {
+                                        $set('system_route', $record->url);
+                                    }
+                                }
+                            })
+                            ->afterStateUpdated(function ($state, Forms\Set $set, Forms\Get $get) {
+                                if ($state) {
+                                    $set('url', $state);
+                                    if (!$get('title')) {
+                                        $options = [
+                                            '/' => 'Home',
+                                            '/notices' => 'Notice',
+                                            '/gallery' => 'Gallery',
+                                            '/video-gallery' => 'Video Gallery',
+                                            '/governing-body' => 'Governing Body',
+                                            '/achievements' => 'Achievements',
+                                            '/news' => 'News',
+                                        ];
+                                        $set('title', $options[$state] ?? '');
+                                    }
+                                }
+                            }),
 
                         Forms\Components\Select::make('page_id')
                             ->label('Select Page')
@@ -56,9 +107,9 @@ class MenuResource extends Resource
                             }),
 
                         Forms\Components\TextInput::make('url')
-                            ->label('Custom URL')
-                            ->placeholder('https://... or #')
-                            ->visible(fn(Forms\Get $get) => $get('link_source') === 'custom')
+                            ->label('URL')
+                            ->placeholder('e.g., https://... or #')
+                            ->visible(fn(Forms\Get $get) => $get('link_source') !== 'page')
                             ->required(fn(Forms\Get $get) => $get('link_source') === 'custom'),
 
                         Forms\Components\TextInput::make('title')

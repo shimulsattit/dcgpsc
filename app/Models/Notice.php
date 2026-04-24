@@ -71,10 +71,20 @@ class Notice extends Model
         parent::boot();
 
         static::created(function ($notice) {
+            // Generate a unique slug (avoid duplicate constraint violation)
+            $baseSlug = Str::slug($notice->title) . '-notice';
+            $slug = $baseSlug;
+            $count = 1;
+
+            while (Page::where('slug', $slug)->exists()) {
+                $slug = $baseSlug . '-' . $count;
+                $count++;
+            }
+
             // Create a page for this notice
             $page = Page::create([
                 'title' => $notice->title,
-                'slug' => Str::slug($notice->title) . '-notice',
+                'slug' => $slug,
                 'content' => $notice->content ?? '<p>Notice content will be added here.</p>',
                 'is_published' => true,
                 'published_at' => $notice->published_at,

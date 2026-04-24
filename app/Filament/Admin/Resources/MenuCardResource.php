@@ -10,6 +10,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use App\Services\R2Uploader;
 
 class MenuCardResource extends Resource
 {
@@ -34,10 +35,24 @@ class MenuCardResource extends Resource
                             ->required()
                             ->placeholder('e.g., About, Academic Info')
                             ->maxLength(255),
-                        Forms\Components\Textarea::make('icon_url')
-                            ->label('Icon URL (Google Drive)')
-                            ->rows(2)
-                            ->helperText('Paste Google Drive share link for the card icon'),
+                        Forms\Components\TextInput::make('icon_url')
+                            ->label('Icon URL')
+                            ->placeholder('https://...')
+                            ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে আপলোড করুন।'),
+                        Forms\Components\FileUpload::make('icon_upload_handler')
+                            ->label('Upload Icon to Cloudflare R2')
+                            ->image()
+                            ->dehydrated(false)
+                            ->storeFiles(false)
+                            ->afterStateUpdated(function ($state, Forms\Set $set) {
+                                if (!$state) return;
+                                $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                if (!($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                $url = R2Uploader::uploadAndGetUrl($file, 'menu-cards/icons');
+                                if ($url) {
+                                    $set('icon_url', $url);
+                                }
+                            }),
                         Forms\Components\ColorPicker::make('bg_color')
                             ->label('Background Color')
                             ->default('#0a4d3c')

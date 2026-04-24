@@ -20,12 +20,26 @@ class PhotoGallery extends Model
      */
     public function getThumbnailUrlAttribute()
     {
-        // Priority 1: Manual uploaded thumbnail
+        // Priority 1: Custom R2 Thumbnail URL
+        if (!empty($this->thumbnail_url)) {
+            return $this->thumbnail_url;
+        }
+
+        // Priority 2: Use first image from the gallery (images array)
+        if (!empty($this->images) && is_array($this->images)) {
+            $firstImage = $this->images[0] ?? null;
+            if ($firstImage) {
+                // Check if it's an R2 URL or a local path
+                return str_starts_with($firstImage, 'http') ? $firstImage : asset('storage/' . $firstImage);
+            }
+        }
+
+        // Priority 3: Legacy Manual uploaded thumbnail
         if (!empty($this->manual_thumbnail)) {
             return asset('storage/' . $this->manual_thumbnail);
         }
 
-        // Priority 2: Google Drive image ID
+        // Priority 4: Legacy Google Drive image ID
         if (!empty($this->thumbnail_image_id)) {
             $id = GoogleDriveHelper::extractFileId($this->thumbnail_image_id);
 

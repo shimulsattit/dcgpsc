@@ -47,15 +47,17 @@
 
                 {{-- Display Custom Buttons --}}
                 @if($page->buttons && count($page->buttons) > 0)
-                    <div class="text-center my-4">
+                    <div class="my-4">
                         @foreach($page->buttons as $button)
-                            <a href="{{ $button['url'] }}" class="btn btn-{{ $button['color'] ?? 'primary' }} btn-lg me-2 mb-2"
-                                @if($button['open_new_tab'] ?? false) target="_blank" @endif>
-                                @if(!empty($button['icon']))
-                                    <i class="fas {{ $button['icon'] }} me-2"></i>
-                                @endif
-                                {{ $button['text'] }}
-                            </a>
+                            <div class="mb-2">
+                                <a href="{{ $button['url'] }}" class="btn btn-{{ $button['color'] ?? 'primary' }} btn-lg w-100 text-start px-3"
+                                    @if($button['open_new_tab'] ?? false) target="_blank" @endif>
+                                    @if(!empty($button['icon']))
+                                        <i class="fas {{ $button['icon'] }} me-3"></i>
+                                    @endif
+                                    {{ $button['text'] }}
+                                </a>
+                            </div>
                         @endforeach
                     </div>
                 @endif

@@ -11,13 +11,7 @@ use Filament\Notifications\Notification;
 
 class ManageHeader extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-bars-arrow-up';
-
-    protected static ?string $navigationGroup = 'Site Management';
-
-    protected static ?int $navigationSort = 5;
-
-    protected static ?string $navigationLabel = 'Header Settings';
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static string $view = 'filament.admin.pages.manage-header';
 
@@ -46,6 +40,10 @@ class ManageHeader extends Page
             ->schema([
                 Forms\Components\Section::make('Top Bar')
                     ->schema([
+                        Forms\Components\Toggle::make('show_top_bar')
+                            ->label('Show Top Bar')
+                            ->default(true)
+                            ->columnSpanFull(),
                         Forms\Components\TextInput::make('email')
                             ->label('Email Address')
                             ->email()
@@ -164,6 +162,10 @@ class ManageHeader extends Page
                         Forms\Components\Toggle::make('show_notice_ticker')
                             ->label('Show Notice Ticker')
                             ->default(true),
+                        Forms\Components\TextInput::make('notice_ticker_label')
+                            ->label('Ticker Label (টিকার লেবেল)')
+                            ->default('LATEST NEWS')
+                            ->placeholder('e.g., LATEST NEWS or ব্রেকিং নিউজ'),
                         Forms\Components\TextInput::make('notice_ticker_limit')
                             ->label('Notice Limit')
                             ->numeric()
