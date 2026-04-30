@@ -78,9 +78,25 @@ class MenuCardResource extends Resource
                                     ->placeholder('e.g., About Institute, Syllabus'),
                                 Forms\Components\TextInput::make('url')
                                     ->label('Custom URL')
-                                    ->url()
                                     ->placeholder('https://...')
-                                    ->helperText('Leave empty if linking to a page'),
+                                    ->helperText('Leave empty if linking to a page. সরাসরি URL দিন অথবা ফাইল আপলোড করুন।'),
+                                    
+                                Forms\Components\FileUpload::make('url_upload')
+                                    ->label('Upload File for Custom URL to Cloudflare R2')
+                                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                                    ->dehydrated(false)
+                                    ->storeFiles(false)
+                                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Custom URL ফিল্ডে লিংক বসে যাবে।')
+                                    ->afterStateUpdated(function ($state, callable $set) {
+                                        if (! $state) return;
+                                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                        if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                        $mimeType = $file->getMimeType();
+                                        $folder = str_contains($mimeType, 'pdf') ? 'menucards/documents' : 'menucards/images';
+                                        $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                                        $set('url', $url);
+                                    })
+                                    ->columnSpanFull(),
                                 Forms\Components\Select::make('page_id')
                                     ->label('Or Link to Page')
                                     ->options(Page::all()->pluck('title', 'id'))

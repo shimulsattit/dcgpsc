@@ -21,7 +21,11 @@ class ImportantLinkResource extends Resource
 
     protected static ?int $navigationSort = 7;
 
-    protected static ?string $navigationLabel = 'Important Links';
+    protected static ?string $navigationLabel = 'Sidebar Menu';
+    
+    protected static ?string $modelLabel = 'Sidebar Menu Item';
+
+    protected static ?string $pluralModelLabel = 'Sidebar Menu Items';
 
     public static function form(Form $form): Form
     {
@@ -60,8 +64,26 @@ class ImportantLinkResource extends Resource
                             ->label('URL (লিংক)')
                             ->visible(fn (Forms\Get $get) => $get('link_source') === 'custom')
                             ->required(fn (Forms\Get $get) => $get('link_source') === 'custom')
-                            ->url()
+                            ->helperText('সরাসরি URL দিন অথবা ফাইল আপলোড করুন।')
                             ->maxLength(255),
+                            
+                        Forms\Components\FileUpload::make('url_upload')
+                            ->label('Upload File for Link to Cloudflare R2')
+                            ->acceptedFileTypes(['image/*', 'application/pdf'])
+                            ->dehydrated(false)
+                            ->storeFiles(false)
+                            ->visible(fn (Forms\Get $get) => $get('link_source') === 'custom')
+                            ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের URL ফিল্ডে লিংক বসে যাবে।')
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                if (! $state) return;
+                                $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                $mimeType = $file->getMimeType();
+                                $folder = str_contains($mimeType, 'pdf') ? 'importantlinks/documents' : 'importantlinks/images';
+                                $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                                $set('url', $url);
+                            })
+                            ->columnSpanFull(),
                     ])
                     ->columns(2),
 

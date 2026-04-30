@@ -58,9 +58,22 @@ class NoticeResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('link')
                     ->label('Notice Link (নোটিশ লিংক)')
-                    ->url()
-                    ->placeholder('https://...')
-                    ->helperText('Optional: External link for this notice'),
+                    ->helperText('Optional: External link for this notice. সরাসরি URL দিন অথবা ফাইল আপলোড করুন।'),
+                    
+                Forms\Components\FileUpload::make('link_upload')
+                    ->label('Upload File for Link to Cloudflare R2')
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->dehydrated(false)
+                    ->storeFiles(false)
+                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Notice Link ফিল্ডে লিংক বসে যাবে।')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if (! $state) return;
+                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                        if (! ($file instanceof TemporaryUploadedFile)) return;
+                        $url = R2Uploader::uploadAndGetUrl($file, 'notices');
+                        $set('link', $url);
+                    })
+                    ->columnSpanFull(),
                 Forms\Components\DateTimePicker::make('published_at')
                     ->label('Published Date')
                     ->required()

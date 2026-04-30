@@ -71,10 +71,10 @@ return [
             'use_path_style_endpoint' => true,
             'visibility' => 'public',
             'http'    => [
-                'verify' => 'C:/laragon/etc/ssl/cacert.pem',
+                'verify' => (env('APP_ENV') === 'local' && file_exists('C:/laragon/etc/ssl/cacert.pem')) ? 'C:/laragon/etc/ssl/cacert.pem' : true,
             ],
-            'throw' => false,
-            'report' => false,
+            'throw' => true,
+            'report' => true,
         ],
 
         'gdrive' => [

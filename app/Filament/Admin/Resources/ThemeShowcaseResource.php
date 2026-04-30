@@ -28,13 +28,47 @@ class ThemeShowcaseResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('image')
-                    ->label('Thumbnail Image (Google Drive URL)')
+                    ->label('Thumbnail Image URL (Image/PDF)')
                     ->required()
-                    ->helperText('Paste a Google Drive sharing link.'),
+                    ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে ফাইল আপলোড করুন'),
+                    
+                Forms\Components\FileUpload::make('image_upload')
+                    ->label('Upload Thumbnail to Cloudflare R2')
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->dehydrated(false)
+                    ->storeFiles(false)
+                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Image URL ফিল্ডে লিংক বসে যাবে।')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if (! $state) return;
+                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                        if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                        $mimeType = $file->getMimeType();
+                        $folder = str_contains($mimeType, 'pdf') ? 'themes/documents' : 'themes/images';
+                        $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                        $set('image', $url);
+                    })
+                    ->columnSpanFull(),
+
                 Forms\Components\TextInput::make('url')
-                    ->label('Demo URL')
-                    ->url()
-                    ->helperText('Link to the live demo of the theme.'),
+                    ->label('Demo URL or File')
+                    ->helperText('Link to the live demo or uploaded file.'),
+                    
+                Forms\Components\FileUpload::make('url_upload')
+                    ->label('Upload File for URL to Cloudflare R2')
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->dehydrated(false)
+                    ->storeFiles(false)
+                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Demo URL ফিল্ডে লিংক বসে যাবে।')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if (! $state) return;
+                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                        if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                        $mimeType = $file->getMimeType();
+                        $folder = str_contains($mimeType, 'pdf') ? 'themes/documents' : 'themes/images';
+                        $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                        $set('url', $url);
+                    })
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('sort_order')
                     ->numeric()
                     ->default(0),

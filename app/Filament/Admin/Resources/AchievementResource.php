@@ -75,23 +75,95 @@ class AchievementResource extends Resource
                 Forms\Components\Section::make('Image')
                     ->schema([
                         Forms\Components\Textarea::make('image_url')
-                            ->label('Featured Image URL (Google Drive)')
+                            ->label('Featured Image URL')
                             ->rows(2)
-                            ->helperText('Paste Google Drive share link'),
+                            ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে ছবি আপলোড করুন'),
 
-                        Forms\Components\Textarea::make('bulk_google_drive_urls')
-                            ->label('Bulk Upload - Google Drive URLs (Optional)')
-                            ->rows(5)
-                            ->placeholder("Paste multiple Google Drive share links here (one per line)\nExample:\nhttps://drive.google.com/file/d/xxx/view\nhttps://drive.google.com/file/d/yyy/view")
-                            ->helperText('Paste multiple Google Drive image links, one per line. These will be saved as separate achievements with the same title.')
-                            ->dehydrated(false),
-                    ]),
+                        Forms\Components\FileUpload::make('image_upload')
+                            ->live()
+                            ->label('Upload Image to Cloudflare R2')
+                            ->image()
+                            ->dehydrated(false)
+                            ->storeFiles(false)
+                            ->helperText('ছবি সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Image URL ফিল্ডে লিংক বসে যাবে।')
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                if (! $state) return;
+                                $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                $url = \App\Services\R2Uploader::uploadAndGetUrl($file, 'achievements');
+                                $set('image_url', $url);
+                            })
+                            ->columnSpanFull(),
+                            
+                        Forms\Components\Section::make('Additional Gallery Images')
+                            ->description('Manage additional images for this achievement stored in Cloudflare R2.')
+                            ->schema([
+                                Forms\Components\FileUpload::make('gallery_upload_handler')
+                                    ->label('Add More Images to Gallery')
+                                    ->multiple()
+                                    ->image()
+                                    ->imageEditor()
+                                    ->dehydrated(false)
+                                    ->storeFiles(false)
+                                    ->helperText('এখানে ছবি দিলে সেগুলো R2-তে আপলোড হবে এবং নিচের তালিকায় যুক্ত হবে।')
+                                    ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                                        if (!$state) return;
+                                        
+                                        $currentImages = $get('additional_images') ?? [];
+                                        
+                                        foreach ((array)$state as $file) {
+                                            if ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile) {
+                                                $url = \App\Services\R2Uploader::uploadAndGetUrl($file, 'achievements/gallery');
+                                                if ($url) {
+                                                    $currentImages[] = ['url' => $url];
+                                                }
+                                            }
+                                        }
+                                        
+                                        $set('additional_images', $currentImages);
+                                        $set('gallery_upload_handler', null);
+                                    })
+                                    ->columnSpanFull(),
+
+                                Forms\Components\Repeater::make('additional_images')
+                                    ->label('Existing Gallery Images (URLs)')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('url')
+                                            ->label('Image URL')
+                                            ->disabled()
+                                            ->columnSpan(3),
+                                        Forms\Components\Placeholder::make('preview')
+                                            ->content(fn ($get) => view('filament.forms.components.image-preview', ['imageUrl' => $get('url')]))
+                                            ->columnSpan(1),
+                                    ])
+                                    ->grid(2)
+                                    ->reorderable()
+                                    ->dehydrated(true)
+                                    ->columnSpanFull()
+                                    ->afterStateHydrated(function (Forms\Components\Repeater $component, $state) {
+                                        if (is_array($state)) {
+                                            $formatted = [];
+                                            foreach($state as $url) {
+                                                if (is_string($url)) {
+                                                    $formatted[] = ['url' => $url];
+                                                } else {
+                                                    $formatted[] = $url;
+                                                }
+                                            }
+                                            $component->state($formatted);
+                                        }
+                                    })
+                                    ->dehydrateStateUsing(function ($state) {
+                                        return collect($state)->pluck('url')->filter()->values()->toArray();
+                                    }),
+                            ])->columnSpanFull(),
+                    ])->columns(2),
 
                 Forms\Components\Section::make('Publishing')
                     ->schema([
                         Forms\Components\TextInput::make('author')
                             ->label('Author')
-                            ->default('barisal-admin')
+                            ->default(fn () => auth()->user()?->name ?? 'Admin')
                             ->required(),
                         Forms\Components\DateTimePicker::make('published_at')
                             ->label('Publish Date')

@@ -107,10 +107,29 @@ class MenuResource extends Resource
                             }),
 
                         Forms\Components\TextInput::make('url')
-                            ->label('URL')
+                            ->label('URL (লিংক)')
                             ->placeholder('e.g., https://... or #')
+                            ->helperText('সরাসরি URL দিন অথবা ফাইল আপলোড করুন।')
                             ->visible(fn(Forms\Get $get) => $get('link_source') !== 'page')
                             ->required(fn(Forms\Get $get) => $get('link_source') === 'custom'),
+                            
+                        Forms\Components\FileUpload::make('url_upload')
+                            ->label('Upload File for Menu Link to Cloudflare R2')
+                            ->acceptedFileTypes(['image/*', 'application/pdf'])
+                            ->dehydrated(false)
+                            ->storeFiles(false)
+                            ->visible(fn(Forms\Get $get) => $get('link_source') === 'custom')
+                            ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের URL ফিল্ডে লিংক বসে যাবে।')
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                if (! $state) return;
+                                $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                $mimeType = $file->getMimeType();
+                                $folder = str_contains($mimeType, 'pdf') ? 'menus/documents' : 'menus/images';
+                                $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                                $set('url', $url);
+                            })
+                            ->columnSpanFull(),
 
                         Forms\Components\TextInput::make('title')
                             ->label('Menu Title (Custom Name)')

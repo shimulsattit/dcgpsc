@@ -20,12 +20,56 @@
         <div class="card shadow-sm border-0">
             <div class="card-body p-4 p-md-5">
                 @if($page->image_url)
-                    <div class="mb-4 text-center overflow-hidden rounded shadow-sm">
-                        <img src="{{ \App\Helpers\GoogleDriveHelper::getDirectUrl($page->image_url) }}" 
-                             alt="{{ $page->title }}" 
-                             class="img-fluid w-100" 
-                             style="max-height: 600px; object-fit: cover; object-position: center;">
-                    </div>
+                    @php
+                        $isPdf = preg_match('/\.pdf/i', $page->image_url);
+                        $fileUrl = $page->image_url;
+                    @endphp
+
+                    @if($isPdf)
+                        @php
+                            // Check if it's a Google Drive link
+                            if (preg_match('/drive\.google\.com\/file\/d\/([^\/]+)/', $fileUrl, $matches)) {
+                                $fileId = $matches[1];
+                                $downloadUrl = "https://drive.google.com/uc?export=download&id={$fileId}";
+                                $previewUrl = "https://drive.google.com/file/d/{$fileId}/preview";
+                            } else {
+                                $downloadUrl = $fileUrl;
+                                $previewUrl = $fileUrl;
+                            }
+                        @endphp
+                        <div class="mt-4 mb-4">
+                            <h5 class="mb-3">
+                                <i class="fas fa-file-pdf text-danger me-2"></i>
+                                Attached Document
+                            </h5>
+                            <div class="ratio ratio-16x9" style="min-height: 600px;">
+                                <iframe src="{{ $previewUrl }}" frameborder="0" allowfullscreen
+                                    style="border: 1px solid #ddd; border-radius: 8px;">
+                                </iframe>
+                            </div>
+                            <div class="mt-3 text-center">
+                                <a href="{{ $previewUrl }}" target="_blank" class="btn btn-primary me-2">
+                                    <i class="fas fa-external-link-alt me-2"></i>
+                                    Open in New Tab
+                                </a>
+                                <a href="{{ $downloadUrl }}" target="_blank" class="btn btn-success">
+                                    <i class="fas fa-download me-2"></i>
+                                    Download PDF
+                                </a>
+                            </div>
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <small>If PDF doesn't display above, please use "Open in New Tab" or "Download PDF" button.</small>
+                            </div>
+                        </div>
+                    @else
+                        <div class="mb-4 text-center overflow-hidden rounded shadow-sm">
+                            <img src="{{ \App\Helpers\GoogleDriveHelper::getDirectUrl($page->image_url) }}" 
+                                 alt="{{ $page->title }}" 
+                                 class="img-fluid w-100" 
+                                 style="max-height: 600px; object-fit: cover; object-position: center;">
+                        </div>
+                    @endif
                 @endif
 
                 @if($page->content)
@@ -112,6 +156,7 @@
                         </div>
                     </div>
                 @endif
+
             </div>
         </div>
     </div>

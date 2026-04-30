@@ -32,7 +32,23 @@ class SettingResource extends Resource
                 Forms\Components\Textarea::make('value')
                     ->label('Setting Value')
                     ->rows(3)
-                    ->helperText('For images (logo, etc.), you can use Google Drive share links. They will be automatically converted to direct URLs.')
+                    ->helperText('For images (logo, etc.), you can provide a direct URL or upload below.'),
+                    
+                Forms\Components\FileUpload::make('value_upload')
+                    ->label('Upload File to Cloudflare R2')
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->dehydrated(false)
+                    ->storeFiles(false)
+                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Setting Value ফিল্ডে লিংক বসে যাবে।')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if (! $state) return;
+                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                        if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                        $mimeType = $file->getMimeType();
+                        $folder = str_contains($mimeType, 'pdf') ? 'settings/documents' : 'settings/images';
+                        $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                        $set('value', $url);
+                    })
                     ->columnSpanFull(),
             ]);
     }

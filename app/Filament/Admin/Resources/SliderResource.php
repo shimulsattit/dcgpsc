@@ -47,6 +47,7 @@ class SliderResource extends Resource
                     ->image()
                     ->dehydrated(false)
                     ->storeFiles(false)
+                    ->live()
                     ->helperText('ছবি সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Image URL ফিল্ডে অটো লিংক বসে যাবে।')
                     ->afterStateUpdated(function ($state, callable $set) {
                         if (! $state) {
@@ -63,15 +64,38 @@ class SliderResource extends Resource
                         }
 
                         $url = R2Uploader::uploadAndGetUrl($file, 'sliders');
-                        $set('image_url', $url);
+                        if ($url) {
+                            $set('image_url', $url);
+                        } else {
+                            \Filament\Notifications\Notification::make()
+                                ->title('R2 Upload Failed')
+                                ->body('ছবি সার্ভারে আপলোড হতে সমস্যা হয়েছে। আপনার R2 কনফিগারেশন চেক করুন।')
+                                ->danger()
+                                ->send();
+                        }
                     })
                     ->columnSpanFull(),
 
                 Forms\Components\TextInput::make('link')
                     ->label('Link (ক্লিক করলে কোথায় যাবে)')
-                    ->url()
-                    ->placeholder('https://example.com')
-                    ->helperText('Optional: Slider এ click করলে কোথায় redirect হবে'),
+                    ->helperText('Optional: Slider এ click করলে কোথায় redirect হবে। সরাসরি URL দিন অথবা ফাইল আপলোড করুন।'),
+                    
+                Forms\Components\FileUpload::make('link_upload')
+                    ->label('Upload File for Link to Cloudflare R2')
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->dehydrated(false)
+                    ->storeFiles(false)
+                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Link ফিল্ডে বসে যাবে।')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if (! $state) return;
+                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                        if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                        $mimeType = $file->getMimeType();
+                        $folder = str_contains($mimeType, 'pdf') ? 'sliders/documents' : 'sliders/images';
+                        $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                        $set('link', $url);
+                    })
+                    ->columnSpanFull(),
 
                 Forms\Components\Select::make('image_position')
                     ->label('Image Position (ছবির পজিশন)')

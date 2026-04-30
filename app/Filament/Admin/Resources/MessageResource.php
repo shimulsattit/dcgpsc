@@ -64,9 +64,27 @@ class MessageResource extends Resource
                         Forms\Components\Textarea::make('image_url')
                             ->label('Image URL (ছবির লিংক)')
                             ->rows(2)
-                            ->placeholder('Paste Google Drive share link...')
-                            ->helperText('Google Drive লিংক দিন।')
+                            ->placeholder('সরাসরি URL দিন অথবা ফাইল আপলোড করুন...')
+                            ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে ফাইল আপলোড করুন।')
                             ->reactive(),
+                            
+                        Forms\Components\FileUpload::make('image_upload')
+                            ->live()
+                            ->label('Upload Image to Cloudflare R2')
+                            ->acceptedFileTypes(['image/*', 'application/pdf'])
+                            ->dehydrated(false)
+                            ->storeFiles(false)
+                            ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Image URL ফিল্ডে লিংক বসে যাবে।')
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                if (! $state) return;
+                                $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                $mimeType = $file->getMimeType();
+                                $folder = str_contains($mimeType, 'pdf') ? 'messages/documents' : 'messages/images';
+                                $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                                $set('image_url', $url);
+                            })
+                            ->columnSpanFull(),
                         Forms\Components\Placeholder::make('image_preview')
                             ->label('Image Preview')
                             ->content(fn(Forms\Get $get) => $get('image_url') ? new \Illuminate\Support\HtmlString('<img src="' . \App\Helpers\GoogleDriveHelper::getDirectUrl($get('image_url')) . '" style="max-width: 150px; border-radius: 10px; border: 2px solid #ccc;" referrerpolicy="no-referrer">') : 'No image URL provided')

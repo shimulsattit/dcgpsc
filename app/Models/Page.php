@@ -15,6 +15,7 @@ class Page extends Model
         'title',
         'slug',
         'image_url',
+        'file_url',
         'content',
         'html_content',
         'buttons',

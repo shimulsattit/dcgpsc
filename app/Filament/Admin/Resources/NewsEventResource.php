@@ -76,6 +76,7 @@ class NewsEventResource extends Resource
                             ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে ছবি আপলোড করুন'),
 
                         Forms\Components\FileUpload::make('image_upload')
+                            ->live()
                             ->label('Upload Image to Cloudflare R2')
                             ->image()
                             ->dehydrated(false)
@@ -90,19 +91,75 @@ class NewsEventResource extends Resource
                             })
                             ->columnSpanFull(),
 
-                        Forms\Components\Textarea::make('bulk_google_drive_urls')
-                            ->label('Bulk Upload - Google Drive URLs (Optional)')
-                            ->rows(5)
-                            ->placeholder("Paste multiple Google Drive share links here (one per line)\nExample:\nhttps://drive.google.com/file/d/xxx/view\nhttps://drive.google.com/file/d/yyy/view")
-                            ->helperText('Paste multiple Google Drive image links, one per line. These will be saved as separate news items with the same title.')
-                            ->dehydrated(false),
-                    ]),
+                        Forms\Components\Section::make('Additional Gallery Images')
+                            ->description('Manage additional images for this news/event stored in Cloudflare R2.')
+                            ->schema([
+                                Forms\Components\FileUpload::make('gallery_upload_handler')
+                                    ->label('Add More Images to Gallery')
+                                    ->multiple()
+                                    ->image()
+                                    ->imageEditor()
+                                    ->dehydrated(false)
+                                    ->storeFiles(false)
+                                    ->helperText('এখানে ছবি দিলে সেগুলো R2-তে আপলোড হবে এবং নিচের তালিকায় যুক্ত হবে।')
+                                    ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                                        if (!$state) return;
+                                        
+                                        $currentImages = $get('additional_images') ?? [];
+                                        
+                                        foreach ((array)$state as $file) {
+                                            if ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile) {
+                                                $url = \App\Services\R2Uploader::uploadAndGetUrl($file, 'news-events/gallery');
+                                                if ($url) {
+                                                    $currentImages[] = ['url' => $url];
+                                                }
+                                            }
+                                        }
+                                        
+                                        $set('additional_images', $currentImages);
+                                        $set('gallery_upload_handler', null);
+                                    })
+                                    ->columnSpanFull(),
+
+                                Forms\Components\Repeater::make('additional_images')
+                                    ->label('Existing Gallery Images (URLs)')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('url')
+                                            ->label('Image URL')
+                                            ->disabled()
+                                            ->columnSpan(3),
+                                        Forms\Components\Placeholder::make('preview')
+                                            ->content(fn ($get) => view('filament.forms.components.image-preview', ['imageUrl' => $get('url')]))
+                                            ->columnSpan(1),
+                                    ])
+                                    ->grid(2)
+                                    ->reorderable()
+                                    ->dehydrated(true)
+                                    ->columnSpanFull()
+                                    ->afterStateHydrated(function (Forms\Components\Repeater $component, $state) {
+                                        if (is_array($state)) {
+                                            $formatted = [];
+                                            foreach($state as $url) {
+                                                if (is_string($url)) {
+                                                    $formatted[] = ['url' => $url];
+                                                } else {
+                                                    $formatted[] = $url;
+                                                }
+                                            }
+                                            $component->state($formatted);
+                                        }
+                                    })
+                                    ->dehydrateStateUsing(function ($state) {
+                                        return collect($state)->pluck('url')->filter()->values()->toArray();
+                                    }),
+                            ])->columnSpanFull(),
+                    ])->columns(2),
 
                 Forms\Components\Section::make('Publishing')
                     ->schema([
                         Forms\Components\TextInput::make('author')
                             ->label('Author')
-                            ->default('barisal-admin')
+                            ->default(fn () => auth()->user()?->name ?? 'Admin')
                             ->required(),
                         Forms\Components\DateTimePicker::make('published_at')
                             ->label('Publish Date')

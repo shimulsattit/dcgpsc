@@ -106,6 +106,7 @@ class PhotoGalleryResource extends Resource
                                         }
                                         
                                         $set('images', $currentImages);
+                                        $set('gallery_upload_handler', null);
                                     })
                                     ->columnSpanFull(),
 

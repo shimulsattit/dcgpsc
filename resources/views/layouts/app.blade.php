@@ -357,8 +357,8 @@
         }
 
         .btn:hover::before {
-            width: 300px;
-            height: 300px;
+            width: 1500px;
+            height: 1500px;
         }
 
         /* Fade In Animation */

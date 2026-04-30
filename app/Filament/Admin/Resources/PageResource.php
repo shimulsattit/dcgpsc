@@ -45,23 +45,28 @@ class PageResource extends Resource
                             ->helperText('Auto-generated from title. Edit if needed.')
                             ->maxLength(255),
                         Forms\Components\TextInput::make('image_url')
-                            ->label('Top Image URL')
-                            ->helperText('সরাসরি image URL দিন অথবা নিচ থেকে Cloudflare R2-তে আপলোড করুন।')
+                            ->label('Attachment URL (Image or PDF)')
+                            ->helperText('সরাসরি Image/PDF এর URL দিন অথবা নিচ থেকে Cloudflare R2-তে আপলোড করুন।')
                             ->placeholder('https://...')
                             ->maxLength(500)
                             ->columnSpanFull(),
 
                         Forms\Components\FileUpload::make('image_upload')
-                            ->label('Upload Image to Cloudflare R2')
-                            ->image()
+                            ->label('Upload File to Cloudflare R2 (Image or PDF)')
+                            ->acceptedFileTypes(['image/*', 'application/pdf'])
                             ->dehydrated(false)
                             ->storeFiles(false)
-                            ->helperText('ছবি সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Image URL ফিল্ডে লিংক বসে যাবে।')
+                            ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Attachment URL ফিল্ডে লিংক বসে যাবে।')
                             ->afterStateUpdated(function ($state, callable $set) {
                                 if (! $state) return;
                                 $file = is_array($state) ? ($state[0] ?? null) : $state;
-                                if (! ($file instanceof TemporaryUploadedFile)) return;
-                                $url = R2Uploader::uploadAndGetUrl($file, 'pages');
+                                if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                
+                                // Determine folder based on file type
+                                $mimeType = $file->getMimeType();
+                                $folder = str_contains($mimeType, 'pdf') ? 'pages/documents' : 'pages/images';
+                                
+                                $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
                                 $set('image_url', $url);
                             })
                             ->columnSpanFull(),
@@ -78,7 +83,6 @@ class PageResource extends Resource
                     ->schema([
                         Forms\Components\MarkdownEditor::make('content')
                             ->label('Page Content')
-                            ->required()
                             ->toolbarButtons([
                                 'attachFiles',
                                 'bold',
@@ -127,8 +131,25 @@ Examples:
                                 Forms\Components\TextInput::make('url')
                                     ->label('Button URL')
                                     ->required()
-                                    ->url()
-                                    ->placeholder('https://example.com or /page-slug'),
+                                    ->placeholder('https://example.com or /page-slug')
+                                    ->helperText('সরাসরি URL দিন অথবা ফাইল আপলোড করুন।'),
+                                    
+                                Forms\Components\FileUpload::make('url_upload')
+                                    ->label('Upload File for Button URL to Cloudflare R2')
+                                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                                    ->dehydrated(false)
+                                    ->storeFiles(false)
+                                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Button URL ফিল্ডে লিংক বসে যাবে।')
+                                    ->afterStateUpdated(function ($state, callable $set) {
+                                        if (! $state) return;
+                                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                        if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                        $mimeType = $file->getMimeType();
+                                        $folder = str_contains($mimeType, 'pdf') ? 'pages/documents' : 'pages/images';
+                                        $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                                        $set('url', $url);
+                                    })
+                                    ->columnSpanFull(),
 
                                 Forms\Components\Select::make('color')
                                     ->label('Button Color')

@@ -50,6 +50,7 @@ class ManageSettings extends Page
             'header' => $headerData,
             'footer' => $footerData,
             'admin_tutorial_link' => Setting::get('admin_tutorial_link'),
+            'default_post_author' => Setting::get('default_post_author', 'Admin'),
         ];
 
         $this->form->fill($data);
@@ -218,6 +219,13 @@ class ManageSettings extends Page
                                     ->url()
                                     ->placeholder('https://youtube.com/watch?v=...')
                                     ->columnSpanFull(),
+                                Forms\Components\Select::make('default_post_author')
+                                    ->label('Global Post Author (সকল পোস্টের লেখক)')
+                                    ->options(fn() => \App\Models\User::pluck('name', 'name')->toArray())
+                                    ->searchable()
+                                    ->default('Admin')
+                                    ->helperText('এখানে যে ইউজার সিলেক্ট করবেন, ওয়েবসাইটের সকল পোস্টে (News, Achievements) তার নামই Author হিসেবে দেখাবে।')
+                                    ->columnSpanFull(),
                             ])->columns(2),
                     ]),
 
@@ -328,6 +336,12 @@ class ManageSettings extends Page
             Setting::updateOrCreate(
                 ['key' => 'admin_tutorial_link'],
                 ['value' => $data['admin_tutorial_link']]
+            );
+        }
+        if (array_key_exists('default_post_author', $data)) {
+            Setting::updateOrCreate(
+                ['key' => 'default_post_author'],
+                ['value' => $data['default_post_author']]
             );
         }
 

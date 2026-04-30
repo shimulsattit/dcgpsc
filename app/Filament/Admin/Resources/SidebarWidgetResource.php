@@ -43,14 +43,51 @@ class SidebarWidgetResource extends Resource
                 Forms\Components\Textarea::make('image_url')
                     ->label('Image URL (ছবির লিংক)')
                     ->rows(2)
-                    ->placeholder('Paste Google Drive share link...')
-                    ->helperText('Google Drive লিংক দিন।')
+                    ->placeholder('সরাসরি URL দিন অথবা ফাইল আপলোড করুন...')
+                    ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে ফাইল আপলোড করুন।')
                     ->visible(fn (Forms\Get $get) => $get('type') === 'image_link'),
+                    
+                Forms\Components\FileUpload::make('image_upload')
+                    ->live()
+                    ->label('Upload Image to Cloudflare R2')
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->dehydrated(false)
+                    ->storeFiles(false)
+                    ->visible(fn (Forms\Get $get) => $get('type') === 'image_link')
+                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Image URL ফিল্ডে লিংক বসে যাবে।')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if (! $state) return;
+                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                        if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                        $mimeType = $file->getMimeType();
+                        $folder = str_contains($mimeType, 'pdf') ? 'widgets/documents' : 'widgets/images';
+                        $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                        $set('image_url', $url);
+                    })
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('link')
                     ->label('Link URL (লিংক)')
-                    ->url()
                     ->placeholder('https://...')
+                    ->helperText('সরাসরি URL দিন অথবা ফাইল আপলোড করুন।')
                     ->visible(fn (Forms\Get $get) => in_array($get('type'), ['image_link', 'link'])),
+                    
+                Forms\Components\FileUpload::make('link_upload')
+                    ->label('Upload File for Link to Cloudflare R2')
+                    ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->dehydrated(false)
+                    ->storeFiles(false)
+                    ->visible(fn (Forms\Get $get) => in_array($get('type'), ['image_link', 'link']))
+                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Link URL ফিল্ডে লিংক বসে যাবে।')
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if (! $state) return;
+                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                        if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                        $mimeType = $file->getMimeType();
+                        $folder = str_contains($mimeType, 'pdf') ? 'widgets/documents' : 'widgets/images';
+                        $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                        $set('link', $url);
+                    })
+                    ->columnSpanFull(),
                 Forms\Components\Textarea::make('content')
                     ->label(fn (Forms\Get $get) => $get('type') === 'link' ? 'Link Text (লিংকের লেখা)' : 'Content / Video URL')
                     ->rows(fn (Forms\Get $get) => $get('type') === 'link' ? 2 : 3)

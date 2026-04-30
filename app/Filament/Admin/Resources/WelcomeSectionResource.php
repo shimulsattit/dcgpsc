@@ -43,9 +43,26 @@ class WelcomeSectionResource extends Resource
                 Forms\Components\Section::make('Image')
                     ->schema([
                         Forms\Components\Textarea::make('image_url')
-                            ->label('Image URL (Google Drive)')
+                            ->label('Attachment URL (Image/PDF or Link)')
                             ->rows(2)
-                            ->helperText('Paste Google Drive share link for the welcome image'),
+                            ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে ফাইল আপলোড করুন'),
+                        
+                        Forms\Components\FileUpload::make('image_upload')
+                            ->label('Upload File to Cloudflare R2')
+                            ->acceptedFileTypes(['image/*', 'application/pdf'])
+                            ->dehydrated(false)
+                            ->storeFiles(false)
+                            ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের URL ফিল্ডে লিংক বসে যাবে।')
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                if (! $state) return;
+                                $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                if (! ($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                $mimeType = $file->getMimeType();
+                                $folder = str_contains($mimeType, 'pdf') ? 'welcome/documents' : 'welcome/images';
+                                $url = \App\Services\R2Uploader::uploadAndGetUrl($file, $folder);
+                                $set('image_url', $url);
+                            })
+                            ->columnSpanFull(),
                     ]),
 
                 Forms\Components\Section::make('Button Settings')
