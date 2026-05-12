@@ -123,10 +123,11 @@
         }
 
         .top-bar {
-            background-color: var(--topbar-bg-color);
+            background: linear-gradient(90deg, var(--topbar-bg-color), var(--header-bg-color));
             font-size: 0.85rem;
             padding: 8px 0;
             color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .top-bar a {
@@ -135,17 +136,19 @@
         }
 
         .main-header {
-            background: var(--header-bg-color) !important;
+            background: linear-gradient(135deg, var(--header-bg-color) 0%, var(--primary-color) 100%) !important;
             padding: 30px 0 !important;
             border-bottom: none !important;
+            box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
         }
 
         .navbar-custom {
-            background-color: var(--navbar-bg-color) !important;
+            background: linear-gradient(to bottom, var(--navbar-bg-color), #111) !important;
             padding: 0.25rem 0 !important;
             min-height: 50px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             z-index: 1000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .navbar-custom .navbar-nav {
