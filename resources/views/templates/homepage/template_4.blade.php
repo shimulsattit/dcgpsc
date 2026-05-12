@@ -138,7 +138,7 @@
                                 <h5 class="fw-bold mb-0">{{ $principal->name }}</h5>
                                 <p class="text-muted small mb-3">Principal</p>
                                 <p class="small text-muted italic">"{{ Str::limit($principal->message, 120) }}"</p>
-                                <a href="{{ route('messages.show', $principal->id) }}" class="btn btn-sm btn-outline-dark">Full Message</a>
+                                <a href="{{ route('message.show', $principal->slug) }}" class="btn btn-sm btn-outline-dark">Full Message</a>
                             </div>
                         </div>
                     @endif
@@ -151,7 +151,7 @@
                                 <div>
                                     <h6 class="fw-bold mb-0">{{ $chairman->name }}</h6>
                                     <p class="text-muted extra-small mb-1">Chairman</p>
-                                    <a href="{{ route('messages.show', $chairman->id) }}" class="small text-primary text-decoration-none">Read Message</a>
+                                    <a href="{{ route('message.show', $chairman->slug) }}" class="small text-primary text-decoration-none">Read Message</a>
                                 </div>
                             </div>
                         </div>

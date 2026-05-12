@@ -35,7 +35,7 @@ class HomeController extends Controller
         // Cache messages for 1 hour
         $messages = Cache::remember('homepage.messages', 3600, function () {
             return Message::orderBy('order')
-                ->select('id', 'name', 'designation', 'message', 'image_url', 'order')
+                ->select('id', 'name', 'slug', 'designation', 'message', 'image_url', 'order')
                 ->get();
         });
 
