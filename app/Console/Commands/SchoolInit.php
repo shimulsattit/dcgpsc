@@ -22,13 +22,13 @@ class SchoolInit extends Command
      * The name and signature of the console command.
      * @var string
      */
-    protected $signature = 'app:school-init';
+    protected $signature = 'app:school-init {--name= : The name of the school} {--email= : The default contact email}';
 
     /**
      * The console command description.
      * @var string
      */
-    protected $description = 'Cleanup all demo data and initialize professional defaults for a new school setup';
+    protected $description = 'Cleanup all demo data and initialize professional defaults with optional school name and email';
 
     /**
      * Execute the console command.
@@ -86,11 +86,14 @@ class SchoolInit extends Command
     {
         $this->info('Step 2: Initializing site settings...');
 
+        $schoolName = $this->option('name') ?: config('app.name', 'New School Name');
+        $email = $this->option('email') ?: 'info@school.edu.bd';
+
         // Header Configuration
         HeaderSetting::create([
-            'site_name' => 'New School Name',
-            'site_name_bangla' => 'নতুন স্কুলের নাম',
-            'email' => 'info@school.edu.bd',
+            'site_name' => $schoolName,
+            'site_name_bangla' => $this->option('name') ? 'নতুন স্কুলের নাম' : 'নতুন স্কুলের নাম', // User can change bangla name in admin
+            'email' => $email,
             'show_top_bar' => true,
             'show_notice_ticker' => true,
             'notice_ticker_label' => 'LATEST NEWS',
@@ -101,14 +104,14 @@ class SchoolInit extends Command
 
         // Footer Configuration
         FooterSetting::create([
-            'school_name' => 'New School Name',
-            'copyright_text' => 'Copyright © {year} New School Name',
+            'school_name' => $schoolName,
+            'copyright_text' => "Copyright © {year} {$schoolName}",
         ]);
 
         // Visual Theme Configuration
         ThemeSetting::create([
             'primary_color' => '#006a4e',
-            'secondary_color' => '#f2f2f2',
+            'secondary_color' => '#f42a41',
             'homepage_template' => 'template_1',
         ]);
     }
@@ -143,8 +146,10 @@ class SchoolInit extends Command
     {
         $this->info('Step 4: Seeding placeholder demo content...');
 
+        $schoolName = $this->option('name') ?: config('app.name', 'Our School');
+
         Slider::create([
-            'title' => 'Welcome to Our New School',
+            'title' => "Welcome to {$schoolName}",
             'image_url' => 'https://placehold.co/1920x800?text=Default+Slider',
             'order' => 1,
         ]);
@@ -158,13 +163,13 @@ class SchoolInit extends Command
         Message::create([
             'name' => 'Principal Name',
             'designation' => 'Principal',
-            'message' => 'Welcome to our institution. We are dedicated to providing quality education for every student.',
+            'message' => "Welcome to {$schoolName}. We are dedicated to providing quality education for every student.",
             'image_url' => 'https://placehold.co/400x500?text=Principal',
             'order' => 1,
         ]);
 
         WelcomeSection::create([
-            'title' => 'Welcome to Our Institution',
+            'title' => "Welcome to {$schoolName}",
             'content' => 'Explore our world-class facilities and academic programs designed for the future leaders.',
             'image_url' => 'https://placehold.co/600x400?text=Welcome+Image',
         ]);
