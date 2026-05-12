@@ -13,6 +13,18 @@ class R2Uploader
      */
     public static function uploadAndGetUrl(TemporaryUploadedFile $file, string $folder = 'uploads'): ?string
     {
+        // 10 MB = 10 * 1024 * 1024 bytes
+        $maxR2Size = 10 * 1024 * 1024;
+
+        if ($file->getSize() > $maxR2Size) {
+            try {
+                return GoogleDriveUploader::uploadAndGetShareLink($file);
+            } catch (\Exception $e) {
+                \Log::error("Google Drive Upload failed: " . $e->getMessage());
+                return null; // Stop here, don't fall back to R2 for large files
+            }
+        }
+
         $originalName = $file->getClientOriginalName() ?: 'upload';
         $safeName     = Str::slug(pathinfo($originalName, PATHINFO_FILENAME));
         $extension    = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));

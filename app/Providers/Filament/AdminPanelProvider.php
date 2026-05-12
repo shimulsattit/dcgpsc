@@ -21,6 +21,13 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
 {
+    public function boot(): void
+    {
+        \Filament\Forms\Components\FileUpload::configureUsing(function (\Filament\Forms\Components\FileUpload $component) {
+            $component->maxSize(102400); // 100MB
+        });
+    }
+
     public function panel(Panel $panel): Panel
     {
         return $panel

@@ -66,3 +66,734 @@ Stack trace:
   thrown in /home/mosconicuplive/demo.mosconicuplive.com/public/index.php on line 14
 [31-Dec-2025 19:36:50 UTC] PHP Parse error:  syntax error, unexpected token "readonly", expecting "abstract" or "final" or "class" in /home/mosconicuplive/demo.mosconicuplive.com/vendor/sebastian/version/src/Version.php on line 23
 [31-Dec-2025 19:36:53 UTC] PHP Parse error:  syntax error, unexpected token "readonly", expecting "abstract" or "final" or "class" in /home/mosconicuplive/demo.mosconicuplive.com/vendor/sebastian/version/src/Version.php on line 23
+[15-Apr-2026 10:23:52 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:23:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:23:54 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:23:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:24:19 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:24:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:24:21 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:24:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:24:59 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:24:59 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:25:15 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:25:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:25:20 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:25:20 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:25:53 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:25:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:00 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:00 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:00 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:00 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:00 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:00 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:00 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:00 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:01 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:01 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:04 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:15 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:17 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:17 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:18 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:18 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:24 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:24 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:24 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:24 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:24 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:27 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:27 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:30 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:30 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:30 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:30 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:31 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:31 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:31 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:31 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:31 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:31 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:32 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:32 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:33 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:33 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:46 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:52 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:53 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:54 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:27:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:28:19 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:28:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:28:22 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:28:22 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:28:36 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:28:36 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:46 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:46 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:48 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:48 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:50 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:51 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:51 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:53 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:53 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:55 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:58 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:29:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:30:07 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:30:07 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:30:25 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:30:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:30:54 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:30:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:31:39 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:31:39 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:24 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:41 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:41 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:41 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:41 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:42 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:32:42 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:33:19 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:33:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:34:08 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:34:08 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:34:11 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:34:11 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:34:42 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:34:42 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:34:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:34:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:34:55 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:34:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:35:15 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:35:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:35:56 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:35:56 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:35:58 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:35:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:36:00 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:36:00 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:36:02 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:36:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:36:03 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:36:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:36:25 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:36:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:39:10 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:39:10 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:45 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:40:47 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/public/index.php on line 14
+[15-Apr-2026 10:41:09 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/vendor/composer/autoload_real.php on line 39
+[15-Apr-2026 10:41:09 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/amarschool/dcgpsc.edu.bd/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/amarschoo...')
+#1 /home/amarschool/dcgpsc.edu.bd/vendor/autoload.php(25): ComposerAutoloaderInitc514d8f7b9fc5970bdd94287905ef584::getLoader()
+#2 /home/amarschool/dcgpsc.edu.bd/public/index.php(14): require('/home/amarschoo...')
+#3 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/vendor/composer/autoload_real.php on line 39
+[15-Apr-2026 10:41:09 UTC] PHP Warning:  require(/home/amarschool/dcgpsc.edu.bd/vendor/composer/../symfony/deprecation-contracts/function.php): Failed to open stream: No such file or directory in /home/amarschool/dcgpsc.edu.bd/vendor/composer/autoload_real.php on line 39
+[15-Apr-2026 10:41:09 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/amarschool/dcgpsc.edu.bd/vendor/composer/../symfony/deprecation-contracts/function.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/amarschool/dcgpsc.edu.bd/vendor/composer/autoload_real.php:39
+Stack trace:
+#0 /home/amarschool/dcgpsc.edu.bd/vendor/composer/autoload_real.php(43): {closure}('6e3fae29631ef28...', '/home/amarschoo...')
+#1 /home/amarschool/dcgpsc.edu.bd/vendor/autoload.php(25): ComposerAutoloaderInitc514d8f7b9fc5970bdd94287905ef584::getLoader()
+#2 /home/amarschool/dcgpsc.edu.bd/public/index.php(14): require('/home/amarschoo...')
+#3 {main}
+  thrown in /home/amarschool/dcgpsc.edu.bd/vendor/composer/autoload_real.php on line 39

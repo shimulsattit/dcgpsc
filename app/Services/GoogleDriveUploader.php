@@ -13,16 +13,24 @@ class GoogleDriveUploader
 {
     public static function uploadAndGetShareLink(TemporaryUploadedFile $file): string
     {
-        $jsonKeyFile = env('GOOGLE_DRIVE_SERVICE_ACCOUNT_JSON');
-        if (! $jsonKeyFile) {
-            throw new \RuntimeException('GOOGLE_DRIVE_SERVICE_ACCOUNT_JSON is not set.');
+        $clientId = env('GOOGLE_DRIVE_CLIENT_ID');
+        $clientSecret = env('GOOGLE_DRIVE_CLIENT_SECRET');
+        $refreshToken = env('GOOGLE_DRIVE_REFRESH_TOKEN');
+
+        if (!$clientId || !$clientSecret || !$refreshToken) {
+            throw new \RuntimeException('Google Drive OAuth credentials are not set in .env.');
         }
 
         $client = new GoogleClient();
-        $client->setAuthConfig($jsonKeyFile);
+        $client->setClientId($clientId);
+        $client->setClientSecret($clientSecret);
         $client->setScopes([GoogleDriveService::DRIVE]);
-        $client->setApplicationName(config('app.name', 'Laravel Google Drive'));
+        $client->setAccessType('offline');
+        $client->setPrompt('select_account consent');
 
+        // Fetch new access token using refresh token
+        $client->refreshToken($refreshToken);
+        
         $service = new GoogleDriveService($client);
 
         $folderId = env('GOOGLE_DRIVE_FOLDER_ID') ?: null;
@@ -48,16 +56,20 @@ class GoogleDriveUploader
         );
 
         // Make it accessible via link (anyone with the link can view)
-        $service->permissions->create(
-            $created->id,
-            new Permission([
-                'type' => 'anyone',
-                'role' => 'reader',
-            ]),
-            [
-                'fields' => 'id',
-            ]
-        );
+        try {
+            $service->permissions->create(
+                $created->id,
+                new Permission([
+                    'type' => 'anyone',
+                    'role' => 'reader',
+                ]),
+                [
+                    'fields' => 'id',
+                ]
+            );
+        } catch (\Exception $e) {
+            \Log::warning("Could not set permissions for Drive file: " . $e->getMessage());
+        }
 
         // Fetch the webViewLink after permissions are applied
         $fetched = $service->files->get($created->id, [
@@ -65,11 +77,9 @@ class GoogleDriveUploader
         ]);
 
         if (! $fetched->webViewLink) {
-            // Fallback to standard share URL format
             return "https://drive.google.com/file/d/{$created->id}/view";
         }
 
         return $fetched->webViewLink;
     }
 }
-

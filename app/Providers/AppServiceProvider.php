@@ -211,7 +211,7 @@ class AppServiceProvider extends ServiceProvider
 
                 if (! empty($config['jsonKeyFile'])) {
                     // JSON Path method (Service Account key file)
-                    $client->setAuthConfig($config['jsonKeyFile']);
+                    $client->setAuthConfig(base_path($config['jsonKeyFile']));
                     $client->setScopes([\Google\Service\Drive::DRIVE]);
                 } else {
                     // Fallback: OAuth client + refresh token method
@@ -228,7 +228,11 @@ class AppServiceProvider extends ServiceProvider
 
                 $adapter = new GoogleDriveAdapter($service, $folderId);
 
-                return new \League\Flysystem\Filesystem($adapter);
+                return new \Illuminate\Filesystem\FilesystemAdapter(
+                    new \League\Flysystem\Filesystem($adapter, $config),
+                    $adapter,
+                    $config
+                );
             });
         }
     }

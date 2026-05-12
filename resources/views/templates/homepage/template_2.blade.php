@@ -62,6 +62,11 @@
         @include('partials.notice-ticker', ['wrapContainer' => true, 'tickerMargin' => 'mt-3 mb-3'])
     @endif
 
+    {{-- Offers & Notifications Carousel --}}
+    <div class="container">
+        @include('partials.offers-carousel')
+    </div>
+
 
 
     {{-- Main Content Grid --}}

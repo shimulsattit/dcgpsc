@@ -43,11 +43,12 @@ class NoticeResource extends Resource
                     ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে আপলোড করুন'),
 
                 Forms\Components\FileUpload::make('file_upload')
-                    ->label('Upload File to Cloudflare R2 (PDF/Image)')
+                    ->label('Upload File (R2 or Google Drive)')
                     ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->maxSize(102400)
                     ->dehydrated(false)
                     ->storeFiles(false)
-                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের File URL ফিল্ডে লিংক বসে যাবে।')
+                    ->helperText('১০ মেগাবাইটের নিচের ফাইল Cloudflare R2-তে এবং এর বড় ফাইল Google Drive-এ আপলোড হবে।')
                     ->afterStateUpdated(function ($state, callable $set) {
                         if (! $state) return;
                         $file = is_array($state) ? ($state[0] ?? null) : $state;
@@ -61,11 +62,12 @@ class NoticeResource extends Resource
                     ->helperText('Optional: External link for this notice. সরাসরি URL দিন অথবা ফাইল আপলোড করুন।'),
                     
                 Forms\Components\FileUpload::make('link_upload')
-                    ->label('Upload File for Link to Cloudflare R2')
+                    ->label('Upload File for Link')
                     ->acceptedFileTypes(['image/*', 'application/pdf'])
+                    ->maxSize(102400)
                     ->dehydrated(false)
                     ->storeFiles(false)
-                    ->helperText('ফাইল সিলেক্ট করলে Cloudflare R2-তে আপলোড হবে এবং উপরের Notice Link ফিল্ডে লিংক বসে যাবে।')
+                    ->helperText('১০ মেগাবাইটের নিচের ফাইল Cloudflare R2-তে এবং এর বড় ফাইল Google Drive-এ আপলোড হবে।')
                     ->afterStateUpdated(function ($state, callable $set) {
                         if (! $state) return;
                         $file = is_array($state) ? ($state[0] ?? null) : $state;

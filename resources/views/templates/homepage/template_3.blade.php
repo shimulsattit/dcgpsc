@@ -61,6 +61,11 @@
     @if(($headerSettings->ticker_position ?? 'below_slider') !== 'above_slider')
         @include('partials.notice-ticker', ['wrapContainer' => true, 'tickerMargin' => 'mb-3'])
     @endif
+
+    {{-- Offers & Notifications Carousel --}}
+    <div class="container">
+        @include('partials.offers-carousel')
+    </div>
     <div class="container mb-4">
         @php
             // Collect all messages

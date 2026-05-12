@@ -9,6 +9,7 @@ use App\Models\Notice;
 use App\Models\Message;
 use App\Models\NewsEvent;
 use App\Models\Achievement;
+use App\Models\Offer;
 
 class HomeController extends Controller
 {
@@ -56,7 +57,15 @@ class HomeController extends Controller
                 ->get();
         });
 
-        return view('welcome', compact('sliders', 'notices', 'messages', 'newsEvents', 'achievements'));
+        // Cache offers for 1 hour
+        $offers = Cache::remember('homepage.offers', 3600, function () {
+            return Offer::active()
+                ->ordered()
+                ->select('id', 'title', 'image_url', 'link')
+                ->get();
+        });
+
+        return view('welcome', compact('sliders', 'notices', 'messages', 'newsEvents', 'achievements', 'offers'));
     }
 
     public function showWelcome()

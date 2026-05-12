@@ -108,14 +108,17 @@ class ManageSettings extends Page
                                     ->default(true),
                             ])->columns(2),
 
-                        Forms\Components\Section::make('Main Header (Logo & School Info)')
+                        Forms\Components\Section::make('Logo, Favicon & School Info')
+                            ->description('Header লোগো, Footer লোগো, Favicon এবং স্কুলের নাম এক জায়গা থেকে পরিবর্তন করুন।')
+                            ->icon('heroicon-o-building-library')
                             ->schema([
+                                // --- Header Logo ---
                                 Forms\Components\TextInput::make('header.logo_url')
-                                    ->label('Logo URL')
+                                    ->label('Header Logo URL')
                                     ->placeholder('https://...')
-                                    ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে আপলোড করুন।'),
+                                    ->helperText('সরাসরি URL দিন অথবা নিচে থেকে Cloudflare R2-তে আপলোড করুন।'),
                                 Forms\Components\FileUpload::make('header.logo_upload_handler')
-                                    ->label('Upload Logo to Cloudflare R2')
+                                    ->label('Upload Header Logo (Cloudflare R2)')
                                     ->image()
                                     ->dehydrated(false)
                                     ->storeFiles(false)
@@ -128,13 +131,34 @@ class ManageSettings extends Page
                                             $set('header.logo_url', $url);
                                         }
                                     }),
-                                
+
+                                // --- Footer Logo ---
+                                Forms\Components\TextInput::make('footer.logo_url')
+                                    ->label('Footer Logo URL')
+                                    ->placeholder('https://...')
+                                    ->helperText('সরাসরি URL দিন অথবা নিচে থেকে Cloudflare R2-তে আপলোড করুন।'),
+                                Forms\Components\FileUpload::make('footer.logo_upload_handler')
+                                    ->label('Upload Footer Logo (Cloudflare R2)')
+                                    ->image()
+                                    ->dehydrated(false)
+                                    ->storeFiles(false)
+                                    ->afterStateUpdated(function ($state, Forms\Set $set) {
+                                        if (!$state) return;
+                                        $file = is_array($state) ? ($state[0] ?? null) : $state;
+                                        if (!($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
+                                        $url = R2Uploader::uploadAndGetUrl($file, 'settings/footer');
+                                        if ($url) {
+                                            $set('footer.logo_url', $url);
+                                        }
+                                    }),
+
+                                // --- Favicon ---
                                 Forms\Components\TextInput::make('header.favicon_url')
                                     ->label('Favicon URL')
                                     ->placeholder('https://...')
-                                    ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে আপলোড করুন।'),
+                                    ->helperText('সরাসরি URL দিন অথবা নিচে থেকে Cloudflare R2-তে আপলোড করুন।'),
                                 Forms\Components\FileUpload::make('header.favicon_upload_handler')
-                                    ->label('Upload Favicon to Cloudflare R2')
+                                    ->label('Upload Favicon (Cloudflare R2)')
                                     ->image()
                                     ->dehydrated(false)
                                     ->storeFiles(false)
@@ -147,14 +171,17 @@ class ManageSettings extends Page
                                             $set('header.favicon_url', $url);
                                         }
                                     }),
+
+                                // --- School Names ---
                                 Forms\Components\TextInput::make('header.site_name')
-                                    ->label('School Name (English)')
-                                    ->required(),
+                                    ->label('School Name (English) — Header ও Footer উভয়ে দেখাবে')
+                                    ->required()
+                                    ->helperText('এই নামটি Header এবং Footer উভয় জায়গায় ব্যবহৃত হবে।'),
                                 Forms\Components\TextInput::make('header.site_name_font_size')
-                                    ->label('School Name Font Size')
+                                    ->label('School Name Font Size (Header)')
                                     ->default('1.5rem')
-                                    ->placeholder('e.g., 1.5rem or 24px')
-                                    ->helperText('Adjust the font size of the English School Name'),
+                                    ->placeholder('e.g., 1.5rem or 22px')
+                                    ->helperText('Header-এ English School Name-এর font size'),
                                 Forms\Components\TextInput::make('header.site_name_bangla')
                                     ->label('School Name (Bangla)')
                                     ->required(),
@@ -233,30 +260,7 @@ class ManageSettings extends Page
                     ->icon('heroicon-o-bars-arrow-down')
                     ->collapsible()
                     ->schema([
-                        Forms\Components\Section::make('Logo & School Information')
-                            ->schema([
-                                Forms\Components\TextInput::make('footer.logo_url')
-                                    ->label('Footer Logo URL')
-                                    ->placeholder('https://...')
-                                    ->helperText('সরাসরি URL দিন অথবা নিচ থেকে Cloudflare R2-তে আপলোড করুন।'),
-                                Forms\Components\FileUpload::make('footer.logo_upload_handler')
-                                    ->label('Upload Footer Logo to Cloudflare R2')
-                                    ->image()
-                                    ->dehydrated(false)
-                                    ->storeFiles(false)
-                                    ->afterStateUpdated(function ($state, Forms\Set $set) {
-                                        if (!$state) return;
-                                        $file = is_array($state) ? ($state[0] ?? null) : $state;
-                                        if (!($file instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) return;
-                                        $url = R2Uploader::uploadAndGetUrl($file, 'settings/footer');
-                                        if ($url) {
-                                            $set('footer.logo_url', $url);
-                                        }
-                                    }),
-                                Forms\Components\TextInput::make('footer.school_name')
-                                    ->label('School Name (Footer Display)')
-                                    ->required(),
-                            ]),
+                        // Logo এবং School Name এখন উপরের Header Section-এ সরানো হয়েছে
 
                         Forms\Components\Section::make('Contact Information')
                             ->schema([
@@ -356,6 +360,10 @@ class ManageSettings extends Page
         if (isset($data['footer'])) {
             $footerSetting = FooterSetting::first() ?? new FooterSetting();
             $footerSetting->fill($data['footer']);
+            // Auto-sync school name from header English name
+            if (isset($data['header']['site_name'])) {
+                $footerSetting->school_name = $data['header']['site_name'];
+            }
             $footerSetting->save();
         }
 
