@@ -413,6 +413,11 @@ class ManageTheme extends Page
                             ->label('Navigation Hover Color')
                             ->helperText('Use rgba format, e.g., rgba(255,255,255,0.15)')
                             ->required(),
+                        Forms\Components\Toggle::make('is_header_gradient')
+                            ->label('Enable Header Gradient (গ্রেডিয়েন্ট কালার অন করুন)')
+                            ->helperText('হেডার এবং মেনুবারে গ্লসি গ্রেডিয়েন্ট কালার চালু করতে এটি অন রাখুন।')
+                            ->default(true)
+                            ->columnSpanFull(),
                     ])->columns(2)->collapsible(),
 
                 Forms\Components\Section::make('Footer Colors')

@@ -8,6 +8,7 @@ class ThemeSetting extends Model
 {
     protected $fillable = [
         'homepage_template',
+        'is_header_gradient',
         'sidebar_title',
         'news_events_title',
         'achievements_title',
