@@ -70,8 +70,24 @@ class R2Uploader
     /**
      * Delete a file from R2.
      */
-    public static function delete(string $path): bool
+    public static function delete(?string $path): bool
     {
+        if (!$path) {
+            return false;
+        }
+
+        // If it's a Google Drive URL, delete from Drive
+        if (str_contains($path, 'drive.google.com') || str_contains($path, 'docs.google.com')) {
+            return GoogleDriveUploader::delete($path);
+        }
+
+        // Otherwise assume it's an R2 path
+        // Extract relative path from full URL if needed
+        $r2Url = config('filesystems.disks.r2.url');
+        if ($r2Url && str_starts_with($path, $r2Url)) {
+            $path = ltrim(str_replace($r2Url, '', $path), '/');
+        }
+
         if (Storage::disk('r2')->exists($path)) {
             return Storage::disk('r2')->delete($path);
         }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 use App\Helpers\GoogleDriveHelper;
+use App\Services\R2Uploader;
 
 class Slider extends Model
 {
@@ -29,8 +30,13 @@ class Slider extends Model
             Cache::forget('homepage.sliders');
         });
 
-        static::deleted(function () {
+        static::deleted(function ($slider) {
             Cache::forget('homepage.sliders');
+            
+            // Delete the image from storage
+            if ($slider->getRawOriginal('image_url')) {
+                R2Uploader::delete($slider->getRawOriginal('image_url'));
+            }
         });
     }
 

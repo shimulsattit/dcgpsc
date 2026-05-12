@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Helpers\GoogleDriveHelper;
+use App\Services\R2Uploader;
 use Illuminate\Support\Str;
 
 class Notice extends Model
@@ -101,6 +102,18 @@ class Notice extends Model
                 $notice->page->update([
                     'title' => $notice->title,
                 ]);
+            }
+        });
+
+        static::deleted(function ($notice) {
+            // Delete the file from storage
+            if ($notice->file) {
+                R2Uploader::delete($notice->file);
+            }
+
+            // Delete the linked page
+            if ($notice->page) {
+                $notice->page->delete();
             }
         });
     }

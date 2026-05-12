@@ -13,8 +13,8 @@ class StorageStatsWidget extends BaseWidget
 
     protected function getStats(): array
     {
-        // R2 Stats (Cache 24 hours)
-        $r2 = Cache::remember('r2_storage_stats_v5', 86400, function () {
+        // R2 Stats (Cache 5 minutes)
+        $r2 = Cache::remember('r2_storage_stats_v7', 300, function () {
             try {
                 $files = Storage::disk('r2')->allFiles();
                 $totalSize = 0;
@@ -27,8 +27,8 @@ class StorageStatsWidget extends BaseWidget
             }
         });
 
-        // GDrive Stats (Cache 24 hours)
-        $gdrive = Cache::remember('gdrive_storage_stats_v6', 86400, function () {
+        // GDrive Stats (Cache 5 minutes)
+        $gdrive = Cache::remember('gdrive_storage_stats_v8', 300, function () {
             try {
                 $clientId = env('GOOGLE_DRIVE_CLIENT_ID');
                 $clientSecret = env('GOOGLE_DRIVE_CLIENT_SECRET');

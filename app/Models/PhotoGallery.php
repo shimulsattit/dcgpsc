@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Helpers\GoogleDriveHelper;
+use App\Services\R2Uploader;
 
 class PhotoGallery extends Model
 {
@@ -62,5 +63,27 @@ class PhotoGallery extends Model
 
         // Return uploaded image path
         return isset($imageData['image']) ? asset('storage/' . $imageData['image']) : null;
+    }
+
+    /**
+     * Delete files from storage when the record is deleted.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleted(function ($gallery) {
+            // Delete main images array
+            if (!empty($gallery->images) && is_array($gallery->images)) {
+                foreach ($gallery->images as $image) {
+                    R2Uploader::delete($image);
+                }
+            }
+
+            // Delete thumbnail
+            if (!empty($gallery->thumbnail_url)) {
+                R2Uploader::delete($gallery->thumbnail_url);
+            }
+        });
     }
 }
