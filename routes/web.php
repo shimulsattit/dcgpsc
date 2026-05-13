@@ -40,65 +40,45 @@ Route::get('/page/preview/{page}', [PageController::class, 'preview'])->name('pa
 
 // All authentication handled by Filament
 
-// Fix Menu Route (Temporary) - Added to help user sync menu
-Route::get('/fix-menu-data', function () {
+// System Fix & Cache Clear Route
+Route::get('/system-fix', function () {
     try {
-        // 1. Clear ALL caches
+        // 1. Ensure directories exist
+        $paths = [
+            storage_path('app/private/livewire-tmp'),
+            storage_path('app/public/livewire-tmp'),
+            storage_path('framework/cache/data'),
+            storage_path('framework/sessions'),
+            storage_path('framework/views'),
+        ];
+
+        foreach ($paths as $path) {
+            if (!file_exists($path)) {
+                mkdir($path, 0775, true);
+            }
+        }
+
+        // 2. Clear ALL caches
         \Illuminate\Support\Facades\Artisan::call('cache:clear');
         \Illuminate\Support\Facades\Artisan::call('view:clear');
         \Illuminate\Support\Facades\Artisan::call('config:clear');
         \Illuminate\Support\Facades\Artisan::call('route:clear');
         \Illuminate\Support\Facades\Artisan::call('optimize:clear');
 
-        // 2. Run Seeder
+        // 3. Run Seeder (Optional/Keep from previous)
         \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'MenuSeeder', '--force' => true]);
-        $seederOutput = \Illuminate\Support\Facades\Artisan::output();
-
-        // 3. Check file modification times
-        $headerFile = resource_path('views/partials/header-template1.blade.php');
-        $fileExists = file_exists($headerFile);
-        $fileTime = $fileExists ? date('Y-m-d H:i:s', filemtime($headerFile)) : 'NOT FOUND';
-        $fileSize = $fileExists ? filesize($headerFile) : 0;
-
-        // 4. Check if file has the fix
-        $fileContent = $fileExists ? file_get_contents($headerFile) : '';
-        $hasShowClass = str_contains($fileContent, 'collapse navbar-collapse show');
-        $hasPurpleBanner = str_contains($fileContent, 'FILE CHECK');
-
-        // 5. Debug Data
-        $menuCount = \App\Models\Menu::count();
-        $rootMenus = \App\Models\Menu::where(function ($q) {
-            $q->whereNull('parent_id')->orWhere('parent_id', 0)->orWhere('parent_id', '');
-        })->where('is_active', true)->get();
-
-        $debugInfo = "=== DATABASE ===" . "\n";
-        $debugInfo .= "Total Menus: " . $menuCount . "\n";
-        $debugInfo .= "Root Menus: " . $rootMenus->count() . "\n";
-        $debugInfo .= "Sample: " . $rootMenus->pluck('title')->take(3)->implode(', ') . "\n\n";
-
-        $debugInfo .= "=== FILE STATUS ===" . "\n";
-        $debugInfo .= "File Exists: " . ($fileExists ? 'YES' : 'NO') . "\n";
-        $debugInfo .= "Last Modified: " . $fileTime . "\n";
-        $debugInfo .= "File Size: " . $fileSize . " bytes\n";
-        $debugInfo .= "Has 'show' class fix: " . ($hasShowClass ? 'YES ✓' : 'NO ✗') . "\n";
-        $debugInfo .= "Has Purple Banner: " . ($hasPurpleBanner ? 'YES ✓' : 'NO ✗') . "\n";
-
-        return "<h1>Complete System Check</h1>
-                <p>Status: <strong>All Caches Cleared & Seeder Ran</strong></p>
-                <h3>Diagnostic Info:</h3>
-                <pre style='background:#eee;padding:15px; border-left: 4px solid #333;'>$debugInfo</pre>
-                <h3>Next Steps:</h3>
-                <ol style='line-height: 2;'>
-                    <li>If 'Has show class fix' = NO, run: <code>git pull origin main</code></li>
-                    <li>After git pull, refresh this page again</li>
-                    <li>Then go to <a href='/'>Home Page</a> to check menu</li>
-                </ol>
-                <h3>Console Output:</h3>
-                <pre style='background:#ddd;padding:10px; font-size: 12px;'>$seederOutput</pre>";
+        
+        return "<h1>System Fix Complete</h1>
+                <p>Status: <strong>All Caches Cleared & Directories Created</strong></p>
+                <p>আপনি এখন আপনার সাইট ব্যবহার করে দেখতে পারেন। যদি সমস্যা না মেটে, তবে আপনার ব্রাউজারের ক্যাশ ক্লিয়ার করে আবার চেষ্টা করুন।</p>
+                <a href='/admin/photo-galleries/create' style='padding:10px; background:#4f46e5; color:white; text-decoration:none; border-radius:5px;'>ফটো গ্যালারি ক্রিয়েট পেজে যান</a>";
     } catch (\Exception $e) {
         return "<h1>Error</h1><pre>" . $e->getMessage() . "</pre>";
     }
 });
+
+// Alias for old route name just in case
+Route::get('/fix-menu-data', function() { return redirect('/system-fix'); });
 
 // Governing Body route
 Route::get('/governing-body', [App\Http\Controllers\GoverningBodyController::class, 'index'])->name('governing-body.index');

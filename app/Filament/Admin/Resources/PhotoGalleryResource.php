@@ -40,7 +40,7 @@ class PhotoGalleryResource extends Resource
                             ->label('Album Title')
                             ->required()
                             ->maxLength(255)
-                            ->live(onBlur: true)
+                            ->live()
                             ->afterStateUpdated(fn(string $operation, $state, Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
 
                         Forms\Components\TextInput::make('slug')
@@ -58,6 +58,7 @@ class PhotoGalleryResource extends Resource
                         Forms\Components\FileUpload::make('thumbnail_upload_handler')
                             ->label('Upload New Thumbnail to Cloudflare R2')
                             ->image()
+                            ->live()
                             ->dehydrated(false)
                             ->storeFiles(false)
                             ->helperText('নতুন ছবি সিলেক্ট করলে সেটি R2-তে আপলোড হবে এবং উপরের Thumbnail URL ফিল্ডটি আপডেট হবে।')
@@ -87,6 +88,7 @@ class PhotoGalleryResource extends Resource
                                     ->multiple()
                                     ->image()
                                     ->imageEditor()
+                                    ->live()
                                     ->dehydrated(false)
                                     ->storeFiles(false)
                                     ->helperText('এখানে ছবি দিলে সেগুলো R2-তে আপলোড হবে এবং নিচের তালিকায় যুক্ত হবে।')
