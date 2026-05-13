@@ -14,7 +14,7 @@ return [
     */
 
     'temporary_file_upload' => [
-        'disk' => null,        // Specify a disk for temporary file storage
+        'disk' => 'local',        // Specify a disk for temporary file storage
         'rules' => 'file|max:102400', // 100MB - Increase this to allow larger files
         'directory' => null,
         'middleware' => null,
