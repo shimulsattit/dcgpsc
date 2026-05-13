@@ -71,15 +71,33 @@ Route::get('/system-fix', function () {
         
         $livewireDisk = 'public';
         $filesystemDisk = config('filesystems.default');
+        
+        $phpInfo = [
+            'upload_max_filesize' => ini_get('upload_max_filesize'),
+            'post_max_size' => ini_get('post_max_size'),
+            'max_execution_time' => ini_get('max_execution_time'),
+            'memory_limit' => ini_get('memory_limit'),
+        ];
 
         return "<h1>System Fix Complete</h1>
                 <p>Status: <strong>All Caches Cleared & Directories Created</strong></p>
-                <div style='background:#f4f4f4; padding:15px; border-radius:5px;'>
-                    <p><strong>Debug Info:</strong></p>
-                    <ul>
-                        <li>Livewire Temp Disk: <code>$livewireDisk</code></li>
-                        <li>Default Filesystem Disk: <code>$filesystemDisk</code></li>
-                    </ul>
+                <div style='background:#f4f4f4; padding:15px; border-radius:5px; display: flex; gap: 20px;'>
+                    <div style='flex: 1;'>
+                        <p><strong>Laravel Config:</strong></p>
+                        <ul>
+                            <li>Livewire Temp Disk: <code>$livewireDisk</code></li>
+                            <li>Default Filesystem Disk: <code>$filesystemDisk</code></li>
+                        </ul>
+                    </div>
+                    <div style='flex: 1;'>
+                        <p><strong>PHP Server Limits:</strong></p>
+                        <ul>
+                            <li>Upload Max Filesize: <code>{$phpInfo['upload_max_filesize']}</code></li>
+                            <li>Post Max Size: <code>{$phpInfo['post_max_size']}</code></li>
+                            <li>Max Execution Time: <code>{$phpInfo['max_execution_time']}s</code></li>
+                            <li>Memory Limit: <code>{$phpInfo['memory_limit']}</code></li>
+                        </ul>
+                    </div>
                 </div>
                 <p>আপনি এখন আপনার সাইট ব্যবহার করে দেখতে পারেন। যদি সমস্যা না মেটে, তবে আপনার ব্রাউজারের ক্যাশ ক্লিয়ার করে আবার চেষ্টা করুন।</p>
                 <a href='/admin/photo-galleries/create' style='padding:10px; background:#4f46e5; color:white; text-decoration:none; border-radius:5px; display:inline-block; margin-top:10px;'>ফটো গ্যালারি ক্রিয়েট পেজে যান</a>";

@@ -16,13 +16,18 @@ class R2Uploader
         // 10 MB = 10 * 1024 * 1024 bytes
         $maxR2Size = 10 * 1024 * 1024;
 
-        if ($file->getSize() > $maxR2Size) {
-            try {
+        if (!$file->isValid()) {
+            \Log::error("File is not valid");
+            return null;
+        }
+
+        try {
+            if ($file->getSize() > $maxR2Size) {
                 return GoogleDriveUploader::uploadAndGetShareLink($file);
-            } catch (\Exception $e) {
-                \Log::error("Google Drive Upload failed: " . $e->getMessage());
-                return null; // Stop here, don't fall back to R2 for large files
             }
+        } catch (\Exception $e) {
+            \Log::error("Metadata retrieval failed: " . $e->getMessage());
+            // If we can't get size, assume it's small or just try to upload to R2 anyway
         }
 
         $originalName = $file->getClientOriginalName() ?: 'upload';
