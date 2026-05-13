@@ -43,7 +43,7 @@ Route::get('/page/preview/{page}', [PageController::class, 'preview'])->name('pa
 // System Fix & Cache Clear Route
 Route::get('/system-fix', function () {
     try {
-        // 1. Ensure directories exist
+        // 1. Ensure directories exist with wide permissions
         $paths = [
             storage_path('app/private/livewire-tmp'),
             storage_path('app/public/livewire-tmp'),
@@ -56,6 +56,7 @@ Route::get('/system-fix', function () {
             if (!file_exists($path)) {
                 mkdir($path, 0775, true);
             }
+            @chmod($path, 0775);
         }
 
         // 2. Clear ALL caches
@@ -65,13 +66,23 @@ Route::get('/system-fix', function () {
         \Illuminate\Support\Facades\Artisan::call('route:clear');
         \Illuminate\Support\Facades\Artisan::call('optimize:clear');
 
-        // 3. Run Seeder (Optional/Keep from previous)
+        // 3. Run Seeder
         \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'MenuSeeder', '--force' => true]);
         
+        $livewireDisk = 'public';
+        $filesystemDisk = config('filesystems.default');
+
         return "<h1>System Fix Complete</h1>
                 <p>Status: <strong>All Caches Cleared & Directories Created</strong></p>
+                <div style='background:#f4f4f4; padding:15px; border-radius:5px;'>
+                    <p><strong>Debug Info:</strong></p>
+                    <ul>
+                        <li>Livewire Temp Disk: <code>$livewireDisk</code></li>
+                        <li>Default Filesystem Disk: <code>$filesystemDisk</code></li>
+                    </ul>
+                </div>
                 <p>আপনি এখন আপনার সাইট ব্যবহার করে দেখতে পারেন। যদি সমস্যা না মেটে, তবে আপনার ব্রাউজারের ক্যাশ ক্লিয়ার করে আবার চেষ্টা করুন।</p>
-                <a href='/admin/photo-galleries/create' style='padding:10px; background:#4f46e5; color:white; text-decoration:none; border-radius:5px;'>ফটো গ্যালারি ক্রিয়েট পেজে যান</a>";
+                <a href='/admin/photo-galleries/create' style='padding:10px; background:#4f46e5; color:white; text-decoration:none; border-radius:5px; display:inline-block; margin-top:10px;'>ফটো গ্যালারি ক্রিয়েট পেজে যান</a>";
     } catch (\Exception $e) {
         return "<h1>Error</h1><pre>" . $e->getMessage() . "</pre>";
     }
