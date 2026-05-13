@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        setlocale(LC_ALL, 'en_US.UTF-8');
         Paginator::useBootstrapFive();
 
         // Register cache observer for automatic cache clearing

@@ -26,9 +26,16 @@ class R2Uploader
         }
 
         $originalName = $file->getClientOriginalName() ?: 'upload';
-        $safeName     = Str::slug(pathinfo($originalName, PATHINFO_FILENAME));
+        $filenameOnly = pathinfo($originalName, PATHINFO_FILENAME);
         $extension    = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
-        $filename     = $folder . '/' . $safeName . '-' . now()->format('YmdHis') . ($extension ? ".{$extension}" : '');
+        
+        // Ensure we have a safe filename, even for Bengali/Unicode names
+        $safeName = Str::slug($filenameOnly);
+        if (empty($safeName)) {
+            $safeName = 'upload-' . Str::random(8);
+        }
+        
+        $filename = $folder . '/' . $safeName . '-' . now()->format('YmdHis') . ($extension ? ".{$extension}" : '');
 
         try {
             $uploaded = Storage::disk('r2')->put(
