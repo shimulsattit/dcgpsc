@@ -65,9 +65,6 @@ Route::get('/system-fix', function () {
         \Illuminate\Support\Facades\Artisan::call('config:clear');
         \Illuminate\Support\Facades\Artisan::call('route:clear');
         \Illuminate\Support\Facades\Artisan::call('optimize:clear');
-
-        // 3. Run Seeder
-        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => 'MenuSeeder', '--force' => true]);
         
         $livewireDisk = 'public';
         $filesystemDisk = config('filesystems.default');
