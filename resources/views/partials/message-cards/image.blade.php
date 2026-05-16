@@ -1,24 +1,28 @@
 {{-- Message Card Design 2: Background Image (No Overlay) --}}
 @php
-    // Use Google Drive URL for background image
+    // Use Uploaded Image or Google Drive URL for background image
+    $uploadedUrl = $settings['message_card_bg_image'] ?? null;
     $gdriveUrl = $settings['message_card_bg_image_gdrive'] ?? null;
 
-    // Convert Google Drive URL to direct image URL if needed
-    if ($gdriveUrl) {
-        // Extract file ID from various Google Drive URL formats
+    $finalBgUrl = null;
+
+    if ($uploadedUrl) {
+        $finalBgUrl = \Illuminate\Support\Facades\Storage::disk('r2')->url($uploadedUrl);
+    } elseif ($gdriveUrl) {
+        // Convert Google Drive URL to direct image URL if needed
         if (preg_match('/\/file\/d\/([a-zA-Z0-9_-]+)/', $gdriveUrl, $matches)) {
-            // Format: https://drive.google.com/file/d/FILE_ID/view
             $fileId = $matches[1];
-            $gdriveUrl = "https://drive.google.com/thumbnail?id={$fileId}&sz=w1920";
+            $finalBgUrl = "https://drive.google.com/thumbnail?id={$fileId}&sz=w1920";
         } elseif (preg_match('/[?&]id=([a-zA-Z0-9_-]+)/', $gdriveUrl, $matches)) {
-            // Already in correct format or has id parameter
             $fileId = $matches[1];
-            $gdriveUrl = "https://drive.google.com/thumbnail?id={$fileId}&sz=w1920";
+            $finalBgUrl = "https://drive.google.com/thumbnail?id={$fileId}&sz=w1920";
+        } else {
+            $finalBgUrl = $gdriveUrl;
         }
     }
 
-    $bgStyle = $gdriveUrl
-        ? "background: url('{$gdriveUrl}') center/cover;"
+    $bgStyle = $finalBgUrl
+        ? "background: url('{$finalBgUrl}') center/cover;"
         : "background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));";
 @endphp
 

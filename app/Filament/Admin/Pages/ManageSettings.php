@@ -51,6 +51,7 @@ class ManageSettings extends Page
             'footer' => $footerData,
             'admin_tutorial_link' => Setting::get('admin_tutorial_link'),
             'default_post_author' => Setting::get('default_post_author', 'Admin'),
+            'developer_text' => Setting::get('developer_text', 'Designed & Developed by © 2017 Desh Universal Private Limited.'),
         ];
 
         $this->form->fill($data);
@@ -237,6 +238,7 @@ class ManageSettings extends Page
                                     ->options([
                                         'above_slider' => '⬆ Slider এর উপরে (Above Slider)',
                                         'below_slider' => '⬇ Slider এর নিচে (Below Slider) — Default',
+                                        'footer' => '⚓ ফুটার এ (Footer) — Fixed',
                                     ])->default('below_slider'),
                                 Forms\Components\Toggle::make('header.is_shop_enabled')
                                     ->label('Active Online Shop')
@@ -303,6 +305,10 @@ class ManageSettings extends Page
                                 Forms\Components\TextInput::make('footer.privacy_policy_url')
                                     ->label('Privacy Policy URL')
                                     ->url(),
+                                Forms\Components\TextInput::make('developer_text')
+                                    ->label('Developer Credit Text')
+                                    ->columnSpanFull()
+                                    ->helperText('Footer-এর ডান পাশে দেখাবে। (e.g., Designed & Developed by Trust Innovation Ltd.)'),
                             ])->columns(2),
 
                         Forms\Components\Section::make('Featured Links')
@@ -346,6 +352,12 @@ class ManageSettings extends Page
             Setting::updateOrCreate(
                 ['key' => 'default_post_author'],
                 ['value' => $data['default_post_author']]
+            );
+        }
+        if (array_key_exists('developer_text', $data)) {
+            Setting::updateOrCreate(
+                ['key' => 'developer_text'],
+                ['value' => $data['developer_text']]
             );
         }
 

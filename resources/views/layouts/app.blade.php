@@ -542,6 +542,8 @@
         @include('partials.header-template2')
     @elseif($currentTemplate === 'template_3')
         @include('partials.header-template3')
+    @elseif($currentTemplate === 'template_5')
+        @include('partials.header-template5')
     @else
         @include('partials.header')
     @endif
@@ -550,7 +552,11 @@
         @yield('content')
     </main>
 
-    @include('partials.footer')
+    @if($currentTemplate === 'template_5')
+        @include('partials.footer-template5')
+    @else
+        @include('partials.footer')
+    @endif
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

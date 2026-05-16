@@ -297,6 +297,15 @@ class ManageTheme extends Page
                             ->live()
                             ->helperText('Select a design style for message cards. Changes apply to all homepage templates.')
                             ->columnSpanFull(),
+                        Forms\Components\FileUpload::make('message_card_bg_image')
+                            ->label('Background Image (Upload to R2)')
+                            ->disk('r2')
+                            ->directory('theme')
+                            ->visibility('public')
+                            ->image()
+                            ->helperText('Upload a background image directly to Cloudflare R2.')
+                            ->visible(fn(Forms\Get $get) => $get('message_card_design') === 'image')
+                            ->columnSpanFull(),
                         Forms\Components\TextInput::make('message_card_bg_image_gdrive')
                             ->label('Background Image (Google Drive URL)')
                             ->url()

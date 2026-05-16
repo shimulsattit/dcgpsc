@@ -176,6 +176,7 @@ class ManageHeader extends Page
                             ->options([
                                 'above_slider' => '⬆ Slider এর উপরে (Above Slider)',
                                 'below_slider' => '⬇ Slider এর নিচে (Below Slider) — Default',
+                                'footer' => '⚓ ফুটার এ (Footer) — Fixed',
                             ])
                             ->default('below_slider')
                             ->helperText('LATEST NEWS ticker কোথায় দেখাবে তা নির্বাচন করুন')

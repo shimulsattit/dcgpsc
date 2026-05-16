@@ -44,7 +44,7 @@ class HomeController extends Controller
             return NewsEvent::active()
                 ->orderBy('published_at', 'desc')
                 ->select('id', 'title', 'slug', 'excerpt', 'image_url', 'published_at')
-                ->take(3)
+                ->take(10)
                 ->get();
         });
 
@@ -53,7 +53,7 @@ class HomeController extends Controller
             return Achievement::active()
                 ->orderBy('published_at', 'desc')
                 ->select('id', 'title', 'slug', 'excerpt', 'image_url', 'published_at')
-                ->take(3)
+                ->take(10)
                 ->get();
         });
 
